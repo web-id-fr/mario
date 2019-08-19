@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  become: yes
+  become_method: sudo
+
+  roles:
+    # Should be run first
+    - apt
+
+    # Can be runned in any order
+    - discord
+    - slack
+    - spotify
+    - vim
+    - code
+    - steam
+    - git
+    - bash

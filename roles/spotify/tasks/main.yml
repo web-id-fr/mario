@@ -1,0 +1,9 @@
+---
+- name: Install spotify
+  snap: name=spotify
+
+- name: Fixing scale factor to fit 4K screen
+  replace:
+    path: /var/lib/snapd/desktop/applications/spotify_spotify.desktop
+    regexp: bin/spotify %U
+    replace: bin/spotify --force-scale-factor=2 %U

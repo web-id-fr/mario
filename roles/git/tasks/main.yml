@@ -1,0 +1,9 @@
+---
+- name: Install git
+  apt: name=git state=present
+
+- name: Git config username
+  command: git config --global user.name "tentacode"
+
+- name: Git config email
+  command: git config --global user.email "contact@gabrielpillet.com"

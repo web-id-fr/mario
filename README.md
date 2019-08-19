@@ -6,7 +6,7 @@
 
 ## Software
 
-- Firefox, connect with Firefox Sync
+- Firefox, connect with Firhistorefox Sync
 - Visual Studio Code with extensions :
   - comment synchroniser la config ?
 - tilix ? : `sudo apt-get install tilix` 
@@ -25,6 +25,15 @@ sudo apt update
 sudo apt install software-properties-common
 sudo apt-add-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible
+ansible -m ping
+```
+
+```bash
+mkdir ~/Workspace
+cd ~/Workspace
+git clone https://github.com/tentacode/pop-os-setup.git
+cd pop-os-setup
+make pop
 ```
 
 ## Config git
@@ -32,7 +41,5 @@ sudo apt install ansible
 ```bash
 git config --global user.name "tentacode"
 git config --global user.email "contact@gabrielpillet.com"
-mkdir ~/Workspace
-cd ~/Workspace
 ```
 

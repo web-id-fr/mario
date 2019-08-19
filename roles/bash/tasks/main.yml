@@ -1,0 +1,4 @@
+---
+- name: Copying .bash_profile file
+  copy: src=.bash_profile dest=~/.bash_profile
+  become: false
