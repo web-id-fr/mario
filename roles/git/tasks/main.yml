@@ -1,9 +1,43 @@
 ---
-- name: Install git
+- name: Installing git
   apt: name=git state=present
 
-- name: Git config username
-  command: git config --global user.name "tentacode"
+- name: Installing diff-so-fancy
+  npm:
+    name: diff-so-fancy
+    global: yes
 
-- name: Git config email
-  command: git config --global user.email "contact@gabrielpillet.com"
+- name: Git configuration
+  template:
+    src: .gitconfig.j2
+    dest: /home/{{bash_username}}/.gitconfig
+
+- name: Git configuration work
+  template:
+    src: .gitconfig_work.j2
+    dest: /home/{{bash_username}}/.gitconfig_work
+
+- name: Git global ignore
+  template:
+    src: .gitglobalignore.j2
+    dest: /home/{{bash_username}}/.gitglobalignore
+
+# Authorization : tasks bellow to authenticate to github via ssh
+- name: Generate ssh keys for github
+  openssh_keypair:
+    path: /home/{{bash_username}}/.ssh/ssh_github
+  become_user: '{{bash_username}}'
+
+- name: Read ssh public key to authorize
+  shell: cat /home/{{bash_username}}/.ssh/ssh_github.pub
+  register: ssh_pub_key
+  become_user: '{{bash_username}}'
+  changed_when: false
+
+- name: Adding ssh public key to github
+  local_action:
+    module: github_key
+    name: Access key for my machine
+    token: '{{ github_access_token }}'
+    pubkey: '{{ ssh_pub_key.stdout }}'
+  become_user: '{{bash_username}}'

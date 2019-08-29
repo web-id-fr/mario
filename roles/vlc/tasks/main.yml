@@ -1,0 +1,8 @@
+---
+- name: Install vlc
+  snap:
+    name: vlc
+
+- name: Install proprietary codecs
+  apt:
+    name: ubuntu-restricted-extras

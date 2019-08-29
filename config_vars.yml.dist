@@ -1,0 +1,12 @@
+bash_username: gabriel
+
+# create access token in https://github.com/settings/tokens
+github_access_token: TODO
+
+bash_username: gabriel
+git_name: tentacode
+git_email: tentacode@example.com
+git_directory: /home/gabriel/Workspace
+git_work_name: Gabriel Pillet
+git_work_email:  gabriel.pillet@example.com
+git_work_directory: /home/gabriel/Workspace/Yousign/

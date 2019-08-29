@@ -1,0 +1,10 @@
+---
+- name: Checking if keybase is installed
+  shell: keybase --version
+  register: keybase_installed
+  changed_when: false
+  
+- name: Install keybase
+  apt:
+    deb: https://prerelease.keybase.io/keybase_amd64.deb
+  when: not keybase_installed

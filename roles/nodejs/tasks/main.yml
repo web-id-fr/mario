@@ -1,0 +1,24 @@
+# Tasks found here : https://github.com/Dalee/ansible.install-nodejs
+- name: Adding node and yarn repository keys
+  apt_key:
+    url: "{{ item }}"
+  with_items:
+    - "http://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+    - "https://dl.yarnpkg.com/debian/pubkey.gpg"
+
+- name: Adding repositories
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+    - "deb http://deb.nodesource.com/node_10.x {{ ansible_lsb.codename }} main"
+    - "deb-src http://deb.nodesource.com/node_10.x {{ ansible_lsb.codename }} main"
+    - "deb https://dl.yarnpkg.com/debian/ stable main"
+
+- name: Adding node, npm and yarn
+  apt:
+    name:
+      - nodejs
+      - yarn
+    state: present

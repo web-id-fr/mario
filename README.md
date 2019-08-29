@@ -36,10 +36,6 @@ cd pop-os-setup
 make pop
 ```
 
-## Config git
+## TODO
 
-```bash
-git config --global user.name "tentacode"
-git config --global user.email "contact@gabrielpillet.com"
-```
-
+`gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"`

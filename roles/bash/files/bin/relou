@@ -1,0 +1,24 @@
+#!/bin/bash
+
+for ARGUMENT in $*
+do
+    case $ARGUMENT in
+        -h|--help)
+            echo "This command list the biggest files/directories in given directories."
+            echo 
+            echo "Examples:"
+            echo
+            echo "relou                 List the 20 bigesst files in current directory at 1 depth level."
+            echo "relou dir1 dir2       List the 20 biggest files in dir1 and dir2 at 1 depth level."
+            exit
+            ;;
+        *)
+            PATHS="$PATHS $ARGUMENT"
+            ;;
+    esac
+done
+
+DEPTH=1
+MAX=20
+
+du -h -d $DEPTH $PATHS | sort -hr | head -n $MAX

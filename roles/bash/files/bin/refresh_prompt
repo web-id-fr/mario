@@ -1,0 +1,60 @@
+#!/bin/bash
+COLOR_BLACK="\033[0;30m"
+COLOR_RED="\033[0;31m"
+COLOR_GREEN="\033[0;32m"
+COLOR_YELLOW="\033[0;33m"
+COLOR_BLUE="\033[0;34m"
+COLOR_MAGENTA="\033[0;35m"
+COLOR_CYAN="\033[0;36m"
+COLOR_LIGHT_GREY="\033[0;37m"
+COLOR_DARK_GREY="\033[1;30m"
+COLOR_WHITE="\033[1;37m"
+
+COLOR_DEFAULT="\033[0m"
+COLOR_ERROR="\033[1;31m"
+COLOR_PRIMARY=$COLOR_CYAN
+COLOR_SECONDARY=$COLOR_MAGENTA
+COLOR_TERTIARY=$COLOR_YELLOW
+
+function error_code_prompt()
+{
+    local LAST_RETURN=$?
+    if [ $LAST_RETURN -ne 0 ]
+    then
+        echo "🙀($LAST_RETURN) "
+    fi
+}
+
+function git_prompt_start()
+{
+    local CURRENT_GIT_BRANCH=`git branch 2> /dev/null | grep -E '^\*' | sed s/\*\ //`
+    if [ $CURRENT_GIT_BRANCH ]
+    then
+        echo " (${CURRENT_GIT_BRANCH}"
+    fi
+}
+
+function git_prompt_end()
+{
+    local CURRENT_GIT_BRANCH=`git branch 2> /dev/null | grep -E '^\*' | sed s/\*\ //`
+    if [ $CURRENT_GIT_BRANCH ]
+    then
+        echo ")"
+    fi
+}
+
+git_prompt_dirty()
+{
+    DIRTY_FILES=`git status -s 2> /dev/null`
+    if [ "$DIRTY_FILES" ]
+    then
+        echo '*'
+    fi
+}
+
+PS1="\[${COLOR_ERROR}\]\$(error_code_prompt)"
+PS1="${PS1}\[${COLOR_PRIMARY}\]\W"
+PS1="${PS1}\[${COLOR_SECONDARY}\]\$(git_prompt_start)"
+PS1="${PS1}\[${COLOR_TERTIARY}\]\$(git_prompt_dirty)"
+PS1="${PS1}\[${COLOR_SECONDARY}\]\$(git_prompt_end)"
+PS1="${PS1}\[${COLOR_DEFAULT}\]$ "

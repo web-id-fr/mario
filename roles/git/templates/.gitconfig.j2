@@ -1,0 +1,31 @@
+[core]
+    precomposeunicode = false
+    editor = vim
+    excludesfile = ~/.gitglobalignore
+    pager = diff-so-fancy | less --tabs=1,5 -R
+
+[alias]
+    recent = 'for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/'
+    st = status -sb
+    mvi = !sh -c 'git mv $0 foo.bar; git mv foo.bar $1'
+    next = !sh -c 'git log --reverse --format=%H `git rev-parse --verify HEAD`..master | head -1 | xargs git checkout'
+    previous = checkout HEAD~1
+    amend = commit --amend --no-edit
+    rebase-master = pull --rebase origin master
+    pushu = !git push -u origin "$(git rev-parse --abbrev-ref HEAD)"
+
+[color]
+    ui = true
+
+[push]
+    default = simple
+
+[merge]
+    tool = diffmerge
+    
+[user]
+    email = "{{ git_email }}"
+    name = "{{ git_name }}"
+
+[includeIf "gitdir:{{ git_work_directory }}"]
+    path = ~/.gitconfig_work

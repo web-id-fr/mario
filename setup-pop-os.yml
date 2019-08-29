@@ -1,18 +1,29 @@
 ---
 - hosts: localhost
+  vars_files:
+    - config_vars.yml
   become: yes
   become_method: sudo
 
   roles:
-    # Should be run first
+    # Should be run first, in this order
     - apt
+    - nodejs
 
     # Can be runned in any order
+    - aws
+    - bash
     - discord
+    - docker
+    - fonts
+    - git
+    - htop
+    - keepass
+    - keybase
     - slack
     - spotify
-    - vim
-    - code
     - steam
-    - git
-    - bash
+    - tilix
+    - vim
+    - vlc
+    - vscode

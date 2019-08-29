@@ -1,4 +1,11 @@
 ---
 - name: Copying .bash_profile file
-  copy: src=.bash_profile dest=~/.bash_profile
-  become: false
+  copy: src=.bash_profile dest=/home/{{ bash_username }}/.bashrc
+  become_user: "{{ bash_username }}"
+
+- name: Copying bash scripts to ~/bin
+  copy:
+    src: bin
+    dest: /home/{{ bash_username }}
+    mode: u+x,g+x,o+x
+  become_user: "{{ bash_username }}"
