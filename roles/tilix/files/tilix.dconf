@@ -1,28 +1,34 @@
-[profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
-foreground-color='#F8F8F2'
-visible-name='tentacode'
-palette=['#272822', '#F92672', '#A6E22E', '#F4BF75', '#66D9EF', '#AE81FF', '#A1EFE4', '#F8F8F2', '#75715E', '#F92672', '#A6E22E', '#F4BF75', '#66D9EF', '#AE81FF', '#A1EFE4', '#F9F8F5']
-badge-color-set=false
-cursor-shape='block'
-cursor-colors-set=false
-highlight-colors-set=false
-use-system-font=false
-bold-color-set=false
-font='Fira Code weight=450 14'
-use-theme-colors=false
-background-color='#272822'
+[/]
+quake-keep-on-top=true
+session-name='tentacode'
+quake-hide-headerbar=true
+enable-wide-handle=false
+copy-on-select=true
+quake-specific-monitor=0
+terminal-title-show-when-single=false
+terminal-title-style='none'
+unsafe-paste-alert=false
+window-style='disable-csd-hide-toolbar'
+theme-variant='dark'
 
 [keybindings]
+terminal-paste='<Primary>v'
+session-save='<Primary>s'
+session-open='<Primary>o'
+app-preferences='<Primary>comma'
+app-new-window='<Primary>n'
 session-add-right='<Primary>d'
 terminal-close='<Primary>w'
-app-new-window='<Primary>n'
-app-preferences='<Primary>comma'
 
-[/]
-terminal-title-style='small'
-theme-variant='dark'
-session-name='Tentacode'
-prompt-on-new-session=true
-control-click-titlebar=true
-terminal-title-show-when-single=false
-window-style='disable-csd-hide-toolbar'
+[profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+foreground-color='#F8F8F2'
+use-system-font=false
+badge-color-set=false
+cursor-colors-set=false
+bold-color-set=false
+palette=['#272822', '#F92672', '#A6E22E', '#F4BF75', '#66D9EF', '#AE81FF', '#A1EFE4', '#F8F8F2', '#75715E', '#F92672', '#A6E22E', '#F4BF75', '#66D9EF', '#AE81FF', '#A1EFE4', '#F9F8F5']
+background-color='#272822'
+highlight-colors-set=false
+font='Fira Code 16'
+use-theme-colors=false
+visible-name='tentacode'
