@@ -8,6 +8,7 @@
   roles:
     # Should be run first, in this order
     - apt
+    - snap
     - nodejs
 
     # Can be runned in any order
@@ -17,9 +18,12 @@
     - docker
     - fonts
     - git
+    - gnome
     - htop
     - keepass
     - keybase
+    - lol
+    - python
     - slack
     - spotify
     - steam

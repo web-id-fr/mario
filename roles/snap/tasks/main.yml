@@ -1,0 +1,4 @@
+---
+- name: Installing snap
+  apt:
+    name: snapd

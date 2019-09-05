@@ -13,7 +13,9 @@
   command: update-alternatives --set x-terminal-emulator /usr/bin/tilix.wrapper
   when: '"tilix" not in default_terminal.stdout'
 
-# Tilix configuration can be backuped with:
+# Tilix configuration can be backuped with
+# make dump-tilix aka :
 # dconf dump /com/gexperts/Tilix/ > roles/tilix/files/tilix.dconf
 - name: Loading tilix.dconf configuration
-  shell: dconf load /com/gexperts/Tilix/ > roles/tilix/files/tilix.dconf
+  shell: dconf load /com/gexperts/Tilix/ < roles/tilix/files/tilix.dconf
+  changed_when: false

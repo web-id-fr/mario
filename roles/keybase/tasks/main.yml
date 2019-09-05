@@ -3,6 +3,7 @@
   shell: keybase --version
   register: keybase_installed
   changed_when: false
+  ignore_errors: true
   
 - name: Install keybase
   apt:

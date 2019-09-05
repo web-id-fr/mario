@@ -1,0 +1,12 @@
+---
+- name: Installing pip
+  apt:
+    name: python-pip
+
+- name: Installing pip python3
+  apt:
+    name: python3-pip
+
+- name: Installing psutil
+  pip:
+    name: psutil

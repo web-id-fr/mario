@@ -1,0 +1,4 @@
+---
+- name: Enabling fractional scaling
+  shell: gsettings set org.gnome.mutter experimental-features "['x11-randr-fractional-scaling']"
+  changed_when: false

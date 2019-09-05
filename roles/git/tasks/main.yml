@@ -23,6 +23,12 @@
     dest: /home/{{bash_username}}/.gitglobalignore
 
 # Authorization : tasks bellow to authenticate to github via ssh
+- name: Creating ~/.ssh directory
+  file:
+    path: /home/{{ bash_username }}/.ssh
+    state: directory
+  become_user: '{{bash_username}}'
+    
 - name: Generate ssh keys for github
   openssh_keypair:
     path: /home/{{bash_username}}/.ssh/ssh_github
