@@ -4,19 +4,9 @@
 
 [Setup OS with usb key](https://pop.system76.com/docs/install-pop-os/)
 
-## Software
+## Required Software
 
-- Firefox, connect with Firhistorefox Sync
-- Visual Studio Code with extensions :
-  - comment synchroniser la config ?
-- tilix ? : `sudo apt-get install tilix` 
-- Typora ?
-
-## Firefox Sync
-
-* Sign in to Firefox Sync using 1password (on another device)
-* Login to 1password via Firefox
-* Manque flash : `sudo apt install flashplugin-installer`
+- Firefox is already installed, connect with Firefox Sync.
 
 ## Ansible
 
@@ -35,7 +25,3 @@ git clone https://github.com/tentacode/pop-os-setup.git
 cd pop-os-setup
 make pop
 ```
-
-## TODO
-
-`gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"`

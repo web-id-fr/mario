@@ -4,6 +4,9 @@
 HISTCONTROL=ignoredups # do not store dupplicate commands in history
 HISTSIZE=1000 # increase history size
 
+# command line language
+LANG=en_GB
+
 # aliases
 alias histogrep='history | grep'
 alias reloud='relou'
