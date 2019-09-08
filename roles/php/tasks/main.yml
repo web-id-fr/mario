@@ -1,0 +1,24 @@
+---
+- name: Adding php repository
+  apt_repository:
+    repo: ppa:ondrej/php
+
+- name: Installing php and dependencies
+  apt:
+    name:
+      - php7.3
+      - composer
+
+- name: Checking if composer is installed
+  shell: composer --version
+  register: composer_installed
+  changed_when: false
+  ignore_errors: true
+
+- name: Downloading composer
+  get_url:
+    url: https://getcomposer.org/download/1.9.0/composer.phar
+    dest: /usr/local/bin/composer
+    checksum: sha256:c9dff69d092bdec14dee64df6677e7430163509798895fbd54891c166c5c0875 
+    mode: +x
+  when: composer_installed.rc != 0

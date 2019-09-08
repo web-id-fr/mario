@@ -8,4 +8,4 @@
 - name: Install keybase
   apt:
     deb: https://prerelease.keybase.io/keybase_amd64.deb
-  when: not keybase_installed
+  when: keybase_installed.rc != 0

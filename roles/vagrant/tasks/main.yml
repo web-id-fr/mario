@@ -1,0 +1,17 @@
+---
+- name: Installing VirtualBox
+  apt:
+    name: virtualbox
+
+- name: Installing vagrant
+  apt:
+    deb: https://releases.hashicorp.com/vagrant/2.2.5/vagrant_2.2.5_x86_64.deb
+
+- name: Get vagrant plugin list
+  shell: vagrant plugin list
+  changed_when: false
+  register: vagrant_plugins
+
+- name: Installing vagrant vbguest plugin
+  command: vagrant plugin install vagrant-vbguest
+  when: '"vbguest" not in vagrant_plugins.stdout'
