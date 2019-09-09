@@ -1,5 +1,28 @@
 ---
-- name: Install Visual Studio Code
+- name: Installing Visual Studio Code
   snap:
     name: code
     classic: true
+
+- name: Getting vs code extensions
+  command: code --list-extensions
+  register: vscode_extensions
+  changed_when: false 
+  become_user: '{{ bash_username }}'
+
+- name: Installing sync extension
+  command: code --install-extension Shan.code-settings-sync --force
+  when: '"settings-sync" not in vscode_extensions.stdout'
+  become_user: '{{ bash_username }}'
+
+- name: Vs code sync configuration
+  template:
+    src: .syncLocalSettings.json.j2
+    dest: /home/{{bash_username}}/.config/Code/User/syncLocalSettings.json
+  become_user: '{{ bash_username }}'
+
+- name: Setting vs code sync token
+  shell: >
+    cat /home/{{ bash_username }}/.config/Code/User/settings.json |
+    jj -v '{{ vs_code_settings_sync_gist_id }}' sync\\.gist |
+    tee /home/{{ bash_username }}/.config/Code/User/settings.json

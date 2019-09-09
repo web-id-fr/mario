@@ -1,0 +1,4 @@
+---
+- name: Installing chrome-headless
+  apt:
+    name: openjdk-8-jre

@@ -19,7 +19,8 @@ PATH=$PATH:~/bin:/snap/bin
 
 # useful for accessing any project directory from anywhere using cd
 WORKSPACE_DIRECTORY="~/Workspace"
-CDPATH=$CDPATH:$WORKSPACE_DIRECTORY:~
+WORKSPACE_WORK_DIRECTORY="~/Workspace/Yousign"
+CDPATH=$CDPATH:$WORKSPACE_DIRECTORY:$WORKSPACE_WORK_DIRECTORY:~
 
 # prompt
 source refresh_prompt

@@ -10,6 +10,7 @@
     - apt
     - snap
     - nodejs
+    - jj
 
     # Can be runned in any order
     - aws
@@ -20,6 +21,7 @@
     - git
     - gnome
     - htop
+    - java
     - keepass
     - keybase
     - lol

@@ -3,9 +3,16 @@
   apt:
     name: virtualbox
 
+- name: Checking if vagrant is installed
+  shell: vagrant --version
+  register: vagrant_installed
+  changed_when: false
+  ignore_errors: true
+
 - name: Installing vagrant
   apt:
     deb: https://releases.hashicorp.com/vagrant/2.2.5/vagrant_2.2.5_x86_64.deb
+  when: vagrant_installed.rc != 0
 
 - name: Get vagrant plugin list
   shell: vagrant plugin list

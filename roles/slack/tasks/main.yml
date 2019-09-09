@@ -1,4 +1,4 @@
 ---
-- name: Install slack
+- name: Installing slack
   apt:
     name: slack-desktop

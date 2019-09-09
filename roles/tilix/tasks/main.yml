@@ -1,5 +1,5 @@
 ---
-- name: Install tilix
+- name: Installing tilix
   apt:
     name: tilix
     state: present

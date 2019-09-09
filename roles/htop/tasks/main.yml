@@ -1,4 +1,4 @@
 ---
-- name: Install htop
+- name: Installing htop
   snap:
     name: htop

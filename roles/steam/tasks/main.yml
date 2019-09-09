@@ -1,5 +1,5 @@
 ---
-- name: Install steam
+- name: Installing steam
   apt: name=steam
 
 - name: Fixing scale factor to fit 4K screen

@@ -1,5 +1,5 @@
 ---
-- name: Install spotify
+- name: Installing spotify
   snap: name=spotify
 
 - name: Fixing scale factor to fit 4K screen

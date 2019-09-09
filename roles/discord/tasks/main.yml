@@ -1,4 +1,4 @@
 ---
-- name: Install discord
+- name: Installing discord
   snap:
     name: discord
