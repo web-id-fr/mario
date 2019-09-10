@@ -1,0 +1,6 @@
+---
+# This role is used to uninstall unused software from default setup
+- name: Uninstalling gear
+  apt:
+    name: geary
+    state: absent

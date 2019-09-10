@@ -4,11 +4,12 @@
 
 [Setup OS with usb key](https://pop.system76.com/docs/install-pop-os/)
 
-## Required Software
+## Requirements
 
 - Firefox is already installed, connect with Firefox Sync.
+- Connect to google accounts.
 
-## Ansible
+## Ansible setup
 
 ```bash
 sudo apt update
@@ -17,6 +18,8 @@ sudo apt-add-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible
 ansible -m ping
 ```
+
+## Provisioning ansible
 
 ```bash
 mkdir ~/Workspace

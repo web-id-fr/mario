@@ -15,6 +15,7 @@
     # Can be runned in any order
     - aws
     - bash
+    - cleanup
     - discord
     - docker
     - fonts
