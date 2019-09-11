@@ -5,9 +5,10 @@ quake-hide-headerbar=true
 enable-wide-handle=false
 copy-on-select=true
 quake-specific-monitor=0
-terminal-title-show-when-single=false
-terminal-title-style='none'
+prompt-on-close-process=false
 unsafe-paste-alert=false
+terminal-title-style='none'
+terminal-title-show-when-single=false
 window-style='disable-csd-hide-toolbar'
 theme-variant='dark'
 
