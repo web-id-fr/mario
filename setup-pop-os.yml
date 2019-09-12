@@ -10,6 +10,7 @@
     - apt
     - snap
     - nodejs
+    - python
     - jj
 
     # Can be runned in any order
@@ -27,7 +28,6 @@
     - keybase
     - lol
     - php
-    - python
     - slack
     - spotify
     - steam
