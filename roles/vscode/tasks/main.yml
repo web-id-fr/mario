@@ -26,3 +26,4 @@
     cat /home/{{ bash_username }}/.config/Code/User/settings.json |
     jj -v '{{ vs_code_settings_sync_gist_id }}' sync\\.gist |
     tee /home/{{ bash_username }}/.config/Code/User/settings.json
+  become_user: '{{ bash_username }}'
