@@ -1,6 +1,8 @@
 ---
 - name: Copying .bash_profile file
-  copy: src=.bash_profile dest=/home/{{ bash_username }}/.bashrc
+  template:
+    src: .bash_profile.j2
+    dest: /home/{{ bash_username }}/.bashrc
   become_user: "{{ bash_username }}"
 
 - name: Copying bash scripts to ~/bin

@@ -18,11 +18,11 @@ eval "$(thefuck --alias)"
 PATH=$PATH:~/bin:/snap/bin
 
 # useful for accessing any project directory from anywhere using cd
-WORKSPACE_DIRECTORY="~/Workspace"
-WORKSPACE_WORK_DIRECTORY="~/Workspace/Yousign"
+WORKSPACE_DIRECTORY="/home/{{ bash_username }}/Workspace"
+WORKSPACE_WORK_DIRECTORY="/home//{{ bash_username }}/Workspace/Yousign"
 CDPATH=$CDPATH:$WORKSPACE_DIRECTORY:$WORKSPACE_WORK_DIRECTORY:~
 
 # prompt
 source refresh_prompt
 
-cd WORKSPACE_DIRECTORY
+cd $WORKSPACE_DIRECTORY
