@@ -4,3 +4,8 @@
   apt:
     name: geary
     state: absent
+
+- name: Uninstalling apache
+  apt:
+    name: apache2
+    state: absent

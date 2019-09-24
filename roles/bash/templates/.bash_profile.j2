@@ -11,6 +11,7 @@ LANG=en_GB
 alias histogrep='history | grep'
 alias reloud='relou'
 alias fu='fuck'
+alias aws-login='$(aws ecr get-login --no-include-email)'
 
 eval "$(thefuck --alias)"
 
@@ -21,6 +22,10 @@ PATH=$PATH:~/bin:/snap/bin
 WORKSPACE_DIRECTORY="/home/{{ bash_username }}/Workspace"
 WORKSPACE_WORK_DIRECTORY="/home//{{ bash_username }}/Workspace/Yousign"
 CDPATH=$CDPATH:$WORKSPACE_DIRECTORY:$WORKSPACE_WORK_DIRECTORY:~
+
+# Specific uid hack
+export FIXUID=$(id -u)
+export FIXGID=$(id -g)
 
 # prompt
 source refresh_prompt

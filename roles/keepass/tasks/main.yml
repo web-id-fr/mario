@@ -1,3 +1,0 @@
----
-- name: Installing keepassxc
-  snap: name=keepassxc
