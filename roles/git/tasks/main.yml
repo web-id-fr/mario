@@ -11,16 +11,25 @@
   template:
     src: .gitconfig.j2
     dest: /home/{{bash_username}}/.gitconfig
+    owner: '{{ bash_username }}'
+
+- name: Git configuration personal
+  template:
+    src: .gitconfig_personal.j2
+    dest: /home/{{bash_username}}/.gitconfig_personal
+    owner: '{{ bash_username }}'
 
 - name: Git configuration work
   template:
     src: .gitconfig_work.j2
     dest: /home/{{bash_username}}/.gitconfig_work
+    owner: '{{ bash_username }}'
 
 - name: Git global ignore
   template:
     src: .gitglobalignore.j2
     dest: /home/{{bash_username}}/.gitglobalignore
+    owner: '{{ bash_username }}'
 
 # Authorization : tasks bellow to authenticate to github via ssh
 - name: Creating ~/.ssh directory

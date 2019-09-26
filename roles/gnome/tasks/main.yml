@@ -2,3 +2,13 @@
 - name: Enabling fractional scaling
   shell: gsettings set org.gnome.mutter experimental-features "['x11-randr-fractional-scaling']"
   changed_when: false
+
+- name: Creating screenshot directory
+  file:
+    path: /home/{{ bash_username }}/Screenshots
+    state: directory
+    owner: "{{ bash_username }}"
+
+- name: Changing screenshot directory
+  shell: gsettings set org.gnome.gnome-screenshot auto-save-directory 'file:///home/{{ bash_username }}/Screenshots'
+  changed_when: false

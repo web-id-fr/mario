@@ -22,10 +22,9 @@
 
 [merge]
     tool = diffmerge
-    
-[user]
-    email = "{{ git_email }}"
-    name = "{{ git_name }}"
 
-[includeIf "gitdir:{{ git_work_directory }}"]
-    path = ~/.gitconfig_work
+[includeIf "gitdir:{{ git_directory }}/"]
+    path = .gitconfig_personal
+
+[includeIf "gitdir:{{ git_work_directory }}/"]
+    path = .gitconfig_work

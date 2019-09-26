@@ -8,7 +8,7 @@ git_email: tentacode@example.com
 git_directory: /home/gabriel/Workspace
 git_work_name: Gabriel Pillet
 git_work_email:  gabriel.pillet@example.com
-git_work_directory: /home/gabriel/Workspace/Yousign/
+git_work_directory: /home/gabriel/Workspace/Yousign
 
 # id of the gist to synchronize vs code settings
 vs_code_settings_sync_gist_id: todo
