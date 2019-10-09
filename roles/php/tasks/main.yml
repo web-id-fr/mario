@@ -22,7 +22,7 @@
   get_url:
     url: https://getcomposer.org/download/1.9.0/composer.phar
     dest: /usr/local/bin/composer
-    checksum: sha256:c9dff69d092bdec14dee64df6677e7430163509798895fbd54891c166c5c0875 
+    checksum: sha256:c9dff69d092bdec14dee64df6677e7430163509798895fbd54891c166c5c0875
     mode: +x
   when: composer_installed.rc != 0
 
@@ -30,12 +30,21 @@
   file:
     path: /home/{{ bash_username }}/.composer
     state: directory
-    owner: '{{ bash_username }}'
-    group: '{{ bash_username }}'
+    owner: "{{ bash_username }}"
+    group: "{{ bash_username }}"
     recurse: yes
+
+- name: Checking if php-cs-fixer is installed
+  shell: php-cs-fixer --version
+  register: phpcsfixer_installed
+  changed_when: false
+  ignore_errors: true
+  become_user: "{{ bash_username }}"
 
 - name: Installing php-cs-fixer
   composer:
     command: require
     global_command: yes
     arguments: friendsofphp/php-cs-fixer
+  when: phpcsfixer_installed.rc != 0
+  become_user: "{{ bash_username }}"
