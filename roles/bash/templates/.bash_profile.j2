@@ -4,9 +4,6 @@
 HISTCONTROL=ignoredups # do not store dupplicate commands in history
 HISTSIZE=1000 # increase history size
 
-# command line language
-LANG=en_GB
-
 # aliases
 alias histogrep='history | grep'
 alias reloud='relou'
@@ -16,7 +13,7 @@ alias aws-login='$(aws ecr get-login --no-include-email)'
 eval "$(thefuck --alias)"
 
 # ~/bin contains this repository custom scripts to the path
-PATH=$PATH:~/bin:/snap/bin
+PATH=$PATH:~/bin:/snap/bin:~/.composer/vendor/bin
 
 # useful for accessing any project directory from anywhere using cd
 WORKSPACE_DIRECTORY="/home/{{ bash_username }}/Workspace"
@@ -26,6 +23,11 @@ CDPATH=$CDPATH:$WORKSPACE_DIRECTORY:$WORKSPACE_WORK_DIRECTORY:~
 # Specific uid hack
 export FIXUID=$(id -u)
 export FIXGID=$(id -g)
+
+# Fix locale
+export LANGUAGE=fr_FR.UTF-8
+export LANG=en_GB
+export LC_ALL=fr_FR.UTF-8
 
 # prompt
 source refresh_prompt

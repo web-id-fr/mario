@@ -9,6 +9,7 @@
       - php7.3
       - php7.3-curl
       - php7.3-xml
+      - php7.3-pgsql
       - composer
 
 - name: Checking if composer is installed
@@ -32,3 +33,9 @@
     owner: '{{ bash_username }}'
     group: '{{ bash_username }}'
     recurse: yes
+
+- name: Installing php-cs-fixer
+  composer:
+    command: require
+    global_command: yes
+    arguments: friendsofphp/php-cs-fixer
