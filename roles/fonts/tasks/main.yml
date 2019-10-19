@@ -5,17 +5,16 @@
 - name: Adding emoji font repository
   apt_repository:
     repo: ppa:eosrei/fonts
+    codename: disco
 
 - name: Installing emoji font
   apt: name=fonts-twemoji-svginot
-
 # - name: Adding emoji keyboard repository
 #   apt_repository:
 #     repo: ppa:atareao/atareao
 
 # - name: Installing emoji keyboard
 #   apt: name=emoji-keyboard
-  
 
 # You need to manually install gnome extension:
 # https://extensions.gnome.org/extension/1162/emoji-selector/

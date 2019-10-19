@@ -19,15 +19,14 @@
 
 ```bash
 sudo apt update
-sudo apt install software-properties-common
 sudo apt-add-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible
-ansible -m ping
 ```
 
 ## Provisioning ansible
 
 ```bash
+sudo apt install git
 mkdir ~/Workspace
 cd ~/Workspace
 git clone https://github.com/tentacode/pop-os-setup.git

@@ -2,6 +2,7 @@
 - name: Adding php repository
   apt_repository:
     repo: ppa:ondrej/php
+    codename: disco
 
 - name: Installing php and dependencies
   apt:
