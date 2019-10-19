@@ -8,10 +8,12 @@
   shell: update-alternatives --query x-terminal-emulator | grep Value
   changed_when: false
   register: default_terminal
+  become_user: "{{ bash_username }}"
 
 - name: Setting tilix as the default terminal
   command: update-alternatives --set x-terminal-emulator /usr/bin/tilix.wrapper
   when: '"tilix" not in default_terminal.stdout'
+  become_user: "{{ bash_username }}"
 
 # Tilix configuration can be backuped with
 # make dump-tilix aka :
@@ -19,3 +21,4 @@
 - name: Loading tilix.dconf configuration
   shell: dconf load /com/gexperts/Tilix/ < roles/tilix/files/tilix.dconf
   changed_when: false
+  become_user: "{{ bash_username }}"

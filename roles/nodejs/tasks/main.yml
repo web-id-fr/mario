@@ -3,7 +3,7 @@
   apt_key:
     url: "{{ item }}"
   with_items:
-    - "http://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+    - "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
     - "https://dl.yarnpkg.com/debian/pubkey.gpg"
 
 - name: Checking node install
@@ -12,8 +12,9 @@
   ignore_errors: true
   changed_when: false
 
-- name: Adding source for node 12
-  command: bash -c "curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -"
+- name: Adding repository for node 12
+  apt_repository:
+    repo: deb https://deb.nodesource.com/node_12.x disco main
   when: node_version.stdout is not search('12')
 
 - name: Install node

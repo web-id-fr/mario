@@ -14,6 +14,9 @@
     name: virtualbox
   when: virtualbox_installed.rc != 0
 
+- name: Starting virtualbox service
+  service: name=virtualbox state=restarted enabled=yes
+
 - name: Checking if vagrant is installed
   shell: vagrant --version
   register: vagrant_installed
@@ -22,25 +25,29 @@
 
 - name: Installing vagrant
   apt:
-    deb: https://releases.hashicorp.com/vagrant/2.2.5/vagrant_2.2.5_x86_64.deb
+    deb: https://releases.hashicorp.com/vagrant/2.2.6/vagrant_2.2.6_x86_64.deb
   when: vagrant_installed.rc != 0
 
 - name: Get vagrant plugin list
   shell: vagrant plugin list
   changed_when: false
   register: vagrant_plugins
+  become_user: "{{ bash_username }}"
 
 - name: Installing vagrant vbguest plugin
   command: vagrant plugin install vagrant-vbguest
   when: '"vbguest" not in vagrant_plugins.stdout'
+  become_user: "{{ bash_username }}"
 
 - name: Installing vagrant disksize plugin
   command: vagrant plugin install vagrant-disksize
   when: '"disksize" not in vagrant_plugins.stdout'
+  become_user: "{{ bash_username }}"
 
 - name: Installing vagrant notify-forwarder plugin
   command: vagrant plugin install vagrant-notify-forwarder
   when: '"notify-forwarder" not in vagrant_plugins.stdout'
+  become_user: "{{ bash_username }}"
 
 - name: Adding vagrant sudoer file to avoid root login
   template:

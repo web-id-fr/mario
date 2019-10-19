@@ -8,6 +8,7 @@
   roles:
     # Should be run first, in this order
     - apt
+    - curl
     - snap
     - nodejs
     - python
@@ -16,6 +17,7 @@
     # Can be runned in any order
     - aws
     - bash
+    - chromium
     - cleanup
     - discord
     - docker

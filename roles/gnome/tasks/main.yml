@@ -1,7 +1,8 @@
 ---
 - name: Enabling fractional scaling
-  shell: gsettings set org.gnome.mutter experimental-features "['x11-randr-fractional-scaling']"
+  shell: gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
   changed_when: false
+  become_user: "{{ bash_username }}"
 
 - name: Creating screenshot directory
   file:
