@@ -13,3 +13,7 @@
 - name: Changing screenshot directory
   shell: gsettings set org.gnome.gnome-screenshot auto-save-directory 'file:///home/{{ bash_username }}/Screenshots'
   changed_when: false
+
+- name: Installing gnome-tweaks
+  apt:
+    name: gnome-tweaks

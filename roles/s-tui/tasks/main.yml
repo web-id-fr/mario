@@ -1,0 +1,4 @@
+---
+- name: Installing s-tui
+  apt:
+    name: s-tui
