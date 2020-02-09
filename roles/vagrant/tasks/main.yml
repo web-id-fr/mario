@@ -3,6 +3,10 @@
   apt:
     name: nfs-server
 
+- name: Installing libvpx5
+  apt:
+    deb: http://archive.ubuntu.com/ubuntu/pool/main/libv/libvpx/libvpx5_1.7.0-3_amd64.deb
+
 - name: Checking if VirtualBox is installed
   shell: VirtualBox --help
   register: virtualbox_installed
@@ -14,8 +18,8 @@
     deb: https://download.virtualbox.org/virtualbox/5.2.34/virtualbox-5.2_5.2.34-133893~Ubuntu~bionic_amd64.deb
   when: virtualbox_installed.rc != 0
 
-- name: Starting virtualbox service
-  service: name=virtualbox state=restarted enabled=yes
+# - name: Starting virtualbox service
+#   service: name=virtualbox state=restarted enabled=yes
 
 - name: Checking if vagrant is installed
   shell: vagrant --version
@@ -32,11 +36,6 @@
   shell: vagrant plugin list
   changed_when: false
   register: vagrant_plugins
-  become_user: "{{ bash_username }}"
-
-- name: Installing vagrant vbguest plugin
-  command: vagrant plugin install vagrant-vbguest
-  when: '"vbguest" not in vagrant_plugins.stdout'
   become_user: "{{ bash_username }}"
 
 - name: Installing vagrant disksize plugin

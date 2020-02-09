@@ -7,6 +7,11 @@
     name: diff-so-fancy
     global: yes
 
+- name: Installing git recent
+  npm:
+    name: git-recent
+    global: yes
+
 - name: Git configuration
   template:
     src: .gitconfig.j2

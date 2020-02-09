@@ -6,4 +6,4 @@
   replace:
     path: /var/lib/snapd/desktop/applications/spotify_spotify.desktop
     regexp: bin/spotify[^%]*%U
-    replace: bin/spotify --force-device-scale-factor=1.5 %U
+    replace: bin/spotify --force-device-scale-factor=1 %U

@@ -2,15 +2,17 @@
 - name: Adding php repository
   apt_repository:
     repo: ppa:ondrej/php
-    codename: disco
+    # codename: disco
 
 - name: Installing php and dependencies
   apt:
     name:
-      - php7.3
-      - php7.3-curl
-      - php7.3-xml
-      - php7.3-pgsql
+      - php7.4
+      - php7.4-curl
+      - php7.4-xml
+      - php7.4-pgsql
+      - php7.4-mbstring
+      - php-ast
       - composer
 
 - name: Checking if composer is installed

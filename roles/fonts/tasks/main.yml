@@ -9,12 +9,17 @@
 
 - name: Installing emoji font
   apt: name=fonts-twemoji-svginot
-# - name: Adding emoji keyboard repository
-#   apt_repository:
-#     repo: ppa:atareao/atareao
 
-# - name: Installing emoji keyboard
-#   apt: name=emoji-keyboard
+- name: Checking if JetBrains Mono font file exists
+  stat:
+    path: ~/.fonts/JetBrainsMono-Regular.ttf
+  register: jetbrains_mono_file
 
-# You need to manually install gnome extension:
-# https://extensions.gnome.org/extension/1162/emoji-selector/
+- name: Download JetBrains Mono font
+  unarchive:
+    src: https://download.jetbrains.com/fonts/JetBrainsMono-1.0.0.zip
+    dest: ~/.fonts
+    remote_src: yes
+  become_user: "{{ bash_username }}"
+  when: jetbrains_mono_file.stat.exists == False
+  notify: compile font cache
