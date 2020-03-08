@@ -15,6 +15,8 @@
     - jj
 
     # Can be runned in any order
+    - chitubox
+    - prusaslicer
     - aws
     - bash
     - chromium
