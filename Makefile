@@ -7,4 +7,4 @@ pop: ## Install Pop!_OS on localhost
 	sudo ansible-playbook -i hosts setup-pop-os.yml
 
 dump-tilix: ## Dump terminal configuration
-	dconf dump /com/gexperts/Tilix/ > roles/tilix/files/tilix.dconf
+	dconf dump /com/gexperts/Tilix/ > roles/software/tilix/files/tilix.dconf

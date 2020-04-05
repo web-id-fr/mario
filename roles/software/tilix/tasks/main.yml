@@ -16,8 +16,8 @@
 
 # Tilix configuration can be backuped with
 # make dump-tilix aka :
-# dconf dump /com/gexperts/Tilix/ > roles/tilix/files/tilix.dconf
+# dconf dump /com/gexperts/Tilix/ > roles/software/tilix/files/tilix.dconf
 - name: Loading tilix.dconf configuration
-  shell: dconf load /com/gexperts/Tilix/ < roles/tilix/files/tilix.dconf
+  shell: dconf load /com/gexperts/Tilix/ < roles/software/tilix/files/tilix.dconf
   changed_when: false
   become_user: "{{ bash_username }}"

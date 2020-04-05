@@ -1,4 +1,4 @@
-# Setup Pop!\_OS
+# Blacksmithery
 
 ## Resources
 
@@ -29,7 +29,7 @@ sudo apt install ansible
 sudo apt install git
 mkdir ~/Workspace
 cd ~/Workspace
-git clone https://github.com/tentacode/pop-os-setup.git
-cd pop-os-setup
+git clone https://github.com/tentacode/blacksmithery.git
+cd blacksmithery
 make pop
 ```
