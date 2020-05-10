@@ -31,6 +31,7 @@
     - roles/infrastructure/postgresql
     - roles/infrastructure/slack
     - roles/infrastructure/vagrant
+    - roles/infrastructure/vpn
     - roles/software/chitubox
     - roles/software/chromium
     - roles/software/discord

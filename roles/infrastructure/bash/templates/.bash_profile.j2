@@ -13,6 +13,10 @@ alias gm='gitmoji -c'
 
 eval "$(thefuck --alias)"
 
+# aliases pro
+alias vpn-prod='cd /home/{{ bash_username }}/VPN/prod/ && sudo /usr/local/bin/openvpn /home/{{ bash_username }}/VPN/prod/vpn_admin_for_prod_gpillet_prod.ovpn'
+alias vpn-noprod='cd /home/{{ bash_username }}/VPN/noprod/ && sudo /usr/local/bin/openvpn /home/{{ bash_username }}/VPN/noprod/vpn_admin_for_noprod_gpillet_noprod.ovpn'
+
 # ~/bin contains this repository custom scripts to the path
 PATH=$PATH:~/bin:/snap/bin:~/.composer/vendor/bin
 

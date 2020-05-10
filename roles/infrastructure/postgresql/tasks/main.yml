@@ -11,11 +11,27 @@
 - name: Installing postgresql
   apt:
     name:
-      - postgresql-11
+      - postgresql-12
       - pgadmin4
       - python-psycopg2 # useful for creating the user (see below)
 
-- name: Creating postgresql uservagrant
+- name: Configuring postgresql access
+  template:
+    src: pg_hba.conf.j2
+    dest: /etc/postgresql/12/main/pg_hba.conf
+  notify: restart postgresql
+
+- name: Enabling postgresql quick connect
+  template:
+    src: .pgpass.j2
+    dest: /home/{{ bash_username }}/.pgpass
+    mode: "0600"
+  become_user: "{{ bash_username }}"
+
+# forcing PostgreSQL restart in the middle of the playbook
+- meta: flush_handlers
+
+- name: Creating postgresql user
   postgresql_user:
     name: "{{ bash_username }}"
     password: "{{ postgresql_password }}"
@@ -26,16 +42,3 @@
   postgresql_db:
     name: "{{ bash_username }}"
   become_user: postgres
-
-- name: Configuring postgresql access
-  template:
-    src: pg_hba.conf.j2
-    dest: /etc/postgresql/11/main/pg_hba.conf
-  notify: restart postgresql
-
-- name: Enabling postgresql quick connect
-  template:
-    src: .pgpass.j2
-    dest: /home/{{ bash_username }}/.pgpass
-    mode: "0600"
-  become_user: "{{ bash_username }}"
