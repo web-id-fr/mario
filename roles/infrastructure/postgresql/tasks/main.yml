@@ -1,19 +1,27 @@
 ---
+- name: Checking postgresql installation
+  shell: psql --version
+  register: postgresql_installed
+  ignore_errors: true
+  changed_when: false
+
 - name: Adding postgresql repository key
   apt_key:
     url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
     state: present
+  when: postgresql_installed.rc != 0
 
 - name: Adding postgresql repository
   apt_repository:
     repo: deb http://apt.postgresql.org/pub/repos/apt/ {{ ansible_lsb.codename }}-pgdg main
+  when: postgresql_installed.rc != 0
 
 - name: Installing postgresql
   apt:
     name:
       - postgresql-12
-      - pgadmin4
-      - python-psycopg2 # useful for creating the user (see below)
+      # - pgadmin4
+      - python3-psycopg2 # useful for creating the user (see below)
 
 - name: Configuring postgresql access
   template:
@@ -37,8 +45,12 @@
     password: "{{ postgresql_password }}"
     role_attr_flags: SUPERUSER,LOGIN
   become_user: postgres
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
 
 - name: Creating the user database
   postgresql_db:
     name: "{{ bash_username }}"
   become_user: postgres
+  vars:
+    ansible_python_interpreter: /usr/bin/python3

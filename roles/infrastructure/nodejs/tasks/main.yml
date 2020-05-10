@@ -1,24 +1,20 @@
 # Tasks found here : https://github.com/Dalee/ansible.install-nodejs
-- name: Adding node and yarn repository keys
-  apt_key:
-    url: "{{ item }}"
-  with_items:
-    - "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
-    - "https://dl.yarnpkg.com/debian/pubkey.gpg"
-
 - name: Checking node install
-  shell: node --version | sed -e 's/^v12.*$/12/'
+  shell: node --version | sed -e 's/^v14.*$/14/'
   register: node_version
   ignore_errors: true
   changed_when: false
 
-- name: Adding repository for node 12
-  apt_repository:
-    repo: deb https://deb.nodesource.com/node_12.x disco main
-  when: node_version.stdout is not search('12')
+- name: Adding repository for node 14
+  shell: curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
+  when: node_version.stdout is not search('14')
 
 - name: Install node
   apt: name=nodejs state=present
+
+- name: Adding yarn repository keys
+  apt_key:
+    url: "https://dl.yarnpkg.com/debian/pubkey.gpg"
 
 - name: Adding yarn
   apt:

@@ -1,19 +1,9 @@
 # Blacksmithery
 
-## Resources
-
-- https://mensfeld.pl/2018/05/lenovo-thinkpad-x1-carbon-6th-gen-2018-ubuntu-18-04-tweaks/
-- https://wiki.archlinux.org/index.php/Lenovo_ThinkPad_T490
-- https://pcsupport.lenovo.com/fr/fr/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t490-type-20n2-20n3/downloads/driver-list/component?name=BIOS
-
-## Setup OS with usb key
-
-[Setup OS with usb key](https://pop.system76.com/docs/install-pop-os/)
-
 ## Requirements
 
-- Firefox is already installed, connect with Firefox Sync.
-- Connect to google accounts.
+- Firefox is already installed
+- Install 1password X extension
 
 ## Ansible setup
 
@@ -31,5 +21,16 @@ mkdir ~/Workspace
 cd ~/Workspace
 git clone https://github.com/tentacode/blacksmithery.git
 cd blacksmithery
+```
+
+Edit `config_vars.yml` file accordingly.
+
+```ssh
 make pop
+```
+
+Resetting this repository's origin to be able to push
+
+```bash
+git remote set-url origin git@github.com:tentacode/blacksmithery.git
 ```

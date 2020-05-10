@@ -7,6 +7,11 @@
   apt:
     name: openvpn
 
+- name: Creating vpn script directory
+  file:
+    path: /etc/openvpn/scripts
+    state: directory
+
 - name: Copying openvpn script
   copy:
     src: openvpn

@@ -12,7 +12,6 @@
 
 - name: Setting tilix as the default terminal
   command: update-alternatives --set x-terminal-emulator /usr/bin/tilix.wrapper
-  become_user: "{{ bash_username }}"
 
 # Tilix configuration can be backuped with
 # make dump-tilix aka :

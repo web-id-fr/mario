@@ -15,10 +15,16 @@
     path: ~/.fonts/JetBrainsMono-Regular.ttf
   register: jetbrains_mono_file
 
+- name: Creating font directory
+  file:
+    path: /home/{{ bash_username }}/.fonts
+    state: directory
+  become_user: "{{ bash_username }}"
+
 - name: Download JetBrains Mono font
   unarchive:
     src: https://download.jetbrains.com/fonts/JetBrainsMono-1.0.0.zip
-    dest: ~/.fonts
+    dest: /home/{{ bash_username }}/.fonts
     remote_src: yes
   become_user: "{{ bash_username }}"
   when: jetbrains_mono_file.stat.exists == False

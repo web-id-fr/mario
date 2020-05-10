@@ -23,5 +23,5 @@
 - name: Chitubox desktop file
   template:
     src: Chitubox.desktop.j2
-    dest: /home/gabriel/.local/share/applications/Chitubox.desktop
+    dest: /home/{{ bash_username }}/.local/share/applications/Chitubox.desktop
   become_user: "{{ bash_username }}"

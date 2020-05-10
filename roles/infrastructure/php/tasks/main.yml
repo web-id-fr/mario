@@ -37,17 +37,15 @@
     group: "{{ bash_username }}"
     recurse: yes
 
-- name: Checking if php-cs-fixer is installed
-  shell: php-cs-fixer --version
-  register: phpcsfixer_installed
-  changed_when: false
-  ignore_errors: true
-  become_user: "{{ bash_username }}"
+- name: Checking if php-cs-fixer file exists
+  stat:
+    path: /home/{{ bash_username }}/.composer/vendor/bin/php-cs-fixer
+  register: phpcsfixer_file
 
 - name: Installing php-cs-fixer
   composer:
     command: require
     global_command: yes
     arguments: friendsofphp/php-cs-fixer
-  when: phpcsfixer_installed.rc != 0
+  when: phpcsfixer_file.stat.exists == False
   become_user: "{{ bash_username }}"

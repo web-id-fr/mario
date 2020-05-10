@@ -23,5 +23,5 @@
 - name: Prusa slicer desktop file
   template:
     src: PrusaSlicer.desktop.j2
-    dest: /home/gabriel/.local/share/applications/PrusaSlicer.desktop
+    dest: /home/{{ bash_username }}/.local/share/applications/PrusaSlicer.desktop
   become_user: "{{ bash_username }}"
