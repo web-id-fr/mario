@@ -61,3 +61,8 @@
     token: "{{ github_access_token }}"
     pubkey: "{{ ssh_pub_key.stdout }}"
   become_user: "{{bash_username}}"
+
+- name: Installing gitmoji cli
+  npm:
+    name: yousign/gitmoji-cli#custom
+    global: true

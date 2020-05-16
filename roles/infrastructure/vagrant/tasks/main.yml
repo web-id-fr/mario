@@ -45,6 +45,11 @@
   when: '"notify-forwarder" not in vagrant_plugins.stdout'
   become_user: "{{ bash_username }}"
 
+- name: Installing vagrant rsync-back plugin
+  command: vagrant plugin install vagrant-rsync-back
+  when: '"rsync-back" not in vagrant_plugins.stdout'
+  become_user: "{{ bash_username }}"
+
 - name: Adding vagrant sudoer file to avoid root login
   template:
     src: sudoers.j2
