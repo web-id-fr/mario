@@ -54,3 +54,11 @@
   become_user: postgres
   vars:
     ansible_python_interpreter: /usr/bin/python3
+
+- name: Installing stellar
+  pip:
+    name: "{{ item }}"
+    executable: pip3
+  with_items:
+    - psycopg2-binary
+    - stellar

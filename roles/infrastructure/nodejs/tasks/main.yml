@@ -12,9 +12,22 @@
 - name: Install node
   apt: name=nodejs state=present
 
-- name: Adding yarn repository keys
+- name: Checking yarn installation
+  shell: yarn --version
+  register: yarn_installed
+  ignore_errors: true
+  changed_when: false
+
+- name: Adding yarn repository key
   apt_key:
-    url: "https://dl.yarnpkg.com/debian/pubkey.gpg"
+    url: https://dl.yarnpkg.com/debian/pubkey.gpg
+    state: present
+  when: yarn_installed.rc != 0
+
+- name: Adding postgresql repository
+  apt_repository:
+    repo: deb https://dl.yarnpkg.com/debian/ stable main
+  when: yarn_installed.rc != 0
 
 - name: Adding yarn
   apt:

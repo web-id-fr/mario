@@ -4,6 +4,7 @@
 
 - Firefox is already installed
 - Install 1password X extension
+- J'ai ajouté stellar
 
 ## Ansible setup
 
