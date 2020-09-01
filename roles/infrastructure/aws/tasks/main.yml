@@ -1,4 +1,9 @@
 ---
+- name: Installing setuptools
+  pip:
+    name: setuptools  
+    executable: pip3
+
 - name: Installing aws-cli
   pip:
     name: awscli  
