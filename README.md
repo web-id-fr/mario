@@ -1,5 +1,7 @@
 # Blacksmithery
 
+This is my Mac OS setup with Ansible
+
 ## Requirements
 
 - Firefox is already installed
