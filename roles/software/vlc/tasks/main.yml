@@ -1,8 +1,5 @@
 ---
 - name: Installing vlc
-  snap:
+  homebrew_cask:
     name: vlc
-
-- name: Installing proprietary codecs
-  apt:
-    name: ubuntu-restricted-extras
+  when: brew_casks.stdout is not search('vlc')

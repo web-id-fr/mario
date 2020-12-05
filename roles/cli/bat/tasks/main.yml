@@ -1,0 +1,4 @@
+- name: Installing bat (cat alternative)
+  homebrew:
+    name: bat
+  when: brew_packages.stdout is not search('bat')

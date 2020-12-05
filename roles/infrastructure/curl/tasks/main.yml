@@ -1,4 +1,0 @@
----
-- name: Installing curl
-  apt:
-    name: curl

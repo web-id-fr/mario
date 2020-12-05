@@ -1,4 +1,0 @@
----
-- name: compile font cache
-  shell: fc-cache -f -v
-  listen: "compile font cache"

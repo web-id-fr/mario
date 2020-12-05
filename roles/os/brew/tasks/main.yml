@@ -1,0 +1,18 @@
+---
+- name: Listing installed brew packages
+  shell: brew list --versions
+  changed_when: false
+  ignore_errors: true
+  register: brew_packages
+  
+- name: Listing installed brew casks
+  shell: brew list --versions --casks
+  changed_when: false
+  ignore_errors: true
+  register: brew_casks
+  
+- name: Listing installed brew taps
+  shell: brew tap
+  changed_when: false
+  ignore_errors: true
+  register: brew_taps

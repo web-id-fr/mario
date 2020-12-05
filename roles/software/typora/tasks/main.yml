@@ -1,13 +1,5 @@
 ---
-- name: Adding typora apt key
-  apt_key:
-    url: https://typora.io/linux/public-key.asc
-    state: present
-
-- name: Adding typora repository
-  apt_repository:
-    repo: deb https://typora.io/linux ./
-
 - name: Installing typora
-  apt:
+  homebrew_cask:
     name: typora
+  when: brew_casks.stdout is not search('typora')

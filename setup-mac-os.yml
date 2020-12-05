@@ -1,0 +1,43 @@
+---
+- hosts: localhost
+  vars_files:
+    - config_vars.yml
+
+  pre_tasks:
+    - name: "Registering whoami"
+      shell: whoami
+      register: whoami_result
+      changed_when: false
+    - name: "Registering bash_username variable"
+      set_fact:
+        bash_username: "{{ whoami_result.stdout }}"
+    - name: "Registering home_directory variable"
+      set_fact:
+        home_directory: "/Users/{{ bash_username }}"
+
+  roles:
+    # Should be run first
+    - roles/os/brew
+    - roles/code/nodejs
+    - roles/cli/jj
+    - roles/cli/bash
+
+    # Can be runned in any order
+    - roles/cli/bat
+    - roles/cli/git
+    - roles/cli/htop
+    - roles/cli/lol
+    - roles/cli/iTerm2
+    - roles/code/php
+    - roles/os/fonts
+    - roles/code/mariadb
+    # - roles/code/vagrant
+    - roles/software/1password
+    - roles/software/discord
+    - roles/software/keybase
+    - roles/software/spotify
+    - roles/software/steam
+    - roles/software/typora
+    - roles/software/slack
+    - roles/software/vlc
+    - roles/software/vscode

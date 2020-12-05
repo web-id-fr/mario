@@ -1,10 +1,5 @@
 ---
-- name: Checking if discord is installed
-  stat:
-    path: /usr/bin/discord-canary
-  register: discord_binary
-
 - name: Installing discord
-  apt:
-    deb: https://discordapp.com/api/download/canary?platform=linux
-  when: discord_binary.stat.exists == False
+  homebrew_cask:
+    name: discord
+  when: brew_casks.stdout is not search('discord')

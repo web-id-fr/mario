@@ -1,0 +1,62 @@
+---
+- name: Adding php tap for homebrew
+  homebrew_tap:
+    name: shivammathur/php
+  when: brew_taps.stdout is not search('shivammathur/php')
+
+- name: Installing php 8.0
+  homebrew:
+    name: php@8.0
+  when: brew_packages.stdout is not search('php 8')
+
+- name: Installing php 7.4
+  homebrew:
+    name: php@7.4
+  when: brew_packages.stdout is not search('php@7.4')
+
+- name: Installing php 7.3
+  homebrew:
+    name: php@7.3
+  when: brew_packages.stdout is not search('php@7.3')
+
+- name: Installing composer
+  homebrew:
+    name: composer
+  when: brew_packages.stdout is not search('composer')
+
+# - name: Adding php repository
+#   apt_repository:
+#     repo: ppa:ondrej/php
+#     # codename: disco
+
+# - name: Installing php and dependencies
+#   apt:
+#     name:
+#       - php7.4
+#       - php7.4-curl
+#       - php7.4-xml
+#       - php7.4-pgsql
+#       - php7.4-mbstring
+#       - php7.4-zip
+#       - php-ast
+
+# - name: Making sure composer cache directory is writable
+#   file:
+#     path: /home/{{ bash_username }}/.composer
+#     state: directory
+#     owner: "{{ bash_username }}"
+#     group: "{{ bash_username }}"
+#     recurse: yes
+
+# - name: Checking if php-cs-fixer file exists
+#   stat:
+#     path: /home/{{ bash_username }}/.composer/vendor/bin/php-cs-fixer
+#   register: phpcsfixer_file
+
+# - name: Installing php-cs-fixer
+#   composer:
+#     command: require
+#     global_command: yes
+#     arguments: friendsofphp/php-cs-fixer
+#   when: phpcsfixer_file.stat.exists == False
+#   become_user: "{{ bash_username }}"

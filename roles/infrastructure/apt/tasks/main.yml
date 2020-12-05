@@ -1,3 +1,0 @@
----
-- name: Installing aptitude
-  package: name=aptitude

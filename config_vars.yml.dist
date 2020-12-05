@@ -1,18 +1,12 @@
-bash_username: gabriel
-
 # create access token in https://github.com/settings/tokens
-github_access_token: TODO
+github_access_token: CHANGE_ME
 
 git_name: tentacode
 git_email: tentacode@example.com
-git_directory: /home/gabriel/Workspace
+git_directory: /Users/gabriel/Workspace
 git_work_name: Gabriel Pillet
 git_work_email: gabriel.pillet@example.com
-git_work_directory: /home/gabriel/Workspace/Yousign
-
-postgresql_password: TODO
+git_work_directory: /Users/gabriel/Workspace/WebID
 
 # id of the gist to synchronize vs code settings
-vs_code_settings_sync_gist_id: TODO
-
-chitubox_archive_path: TODO
+vs_code_settings_sync_gist_id: CHANGE_ME

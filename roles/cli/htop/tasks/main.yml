@@ -1,4 +1,4 @@
----
 - name: Installing htop
-  snap:
+  homebrew:
     name: htop
+  when: brew_packages.stdout is not search('htop')

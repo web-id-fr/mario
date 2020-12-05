@@ -1,0 +1,15 @@
+---
+- name: Checking if font file exists
+  stat:
+    path: "{{ home_directory }}/Library/Fonts/FiraCode-Bold.ttf"
+  register: firafont_file
+
+- name: Adding fira code tap for homebrew
+  homebrew_tap:
+    name: homebrew/cask-fonts
+  when: firafont_file.stat.exists == false
+
+- name: Installing fira code
+  homebrew_cask:
+    name: font-fira-code
+  when: firafont_file.stat.exists == false

@@ -1,57 +1,65 @@
 ---
 - name: Installing git
-  apt: name=git state=present
+  homebrew:
+    name: git
+  when: brew_packages.stdout is not search('git 2')
 
 - name: Installing diff-so-fancy
   npm:
     name: diff-so-fancy
     global: yes
+  when: npm_global_packages.stdout is not search('diff-so-fancy')
 
 - name: Installing git recent
   npm:
     name: git-recent
     global: yes
+  when: npm_global_packages.stdout is not search('git-recent')
+
+- name: Installing gitmoji cli
+  npm:
+    name: gitmoji-cli
+    global: true
+  when: npm_global_packages.stdout is not search('gitmoji-cli')
 
 - name: Git configuration
   template:
     src: .gitconfig.j2
-    dest: /home/{{bash_username}}/.gitconfig
-    owner: "{{ bash_username }}"
+    dest: "{{ home_directory }}/.gitconfig"
 
 - name: Git configuration personal
   template:
     src: .gitconfig_personal.j2
-    dest: /home/{{bash_username}}/.gitconfig_personal
-    owner: "{{ bash_username }}"
+    dest: "{{ home_directory }}/.gitconfig_personal"
 
 - name: Git configuration work
   template:
     src: .gitconfig_work.j2
-    dest: /home/{{bash_username}}/.gitconfig_work
-    owner: "{{ bash_username }}"
+    dest: "{{ home_directory }}/.gitconfig_work"
 
 - name: Git global ignore
   template:
     src: .gitglobalignore.j2
-    dest: /home/{{bash_username}}/.gitglobalignore
-    owner: "{{ bash_username }}"
+    dest: "{{ home_directory }}/.gitglobalignore"
 
 # Authorization : tasks bellow to authenticate to github via ssh
 - name: Creating ~/.ssh directory
   file:
-    path: /home/{{ bash_username }}/.ssh
+    path: "{{ home_directory }}/.ssh"
     state: directory
-  become_user: "{{bash_username}}"
+
+- name: SSH config
+  template:
+    src: .ssh_config.j2
+    dest: "{{ home_directory }}/.ssh/config"
 
 - name: Generate ssh keys for github
   openssh_keypair:
-    path: /home/{{bash_username}}/.ssh/ssh_github
-  become_user: "{{bash_username}}"
+    path: "{{ home_directory }}/.ssh/ssh_github"
 
 - name: Read ssh public key to authorize
-  shell: cat /home/{{bash_username}}/.ssh/ssh_github.pub
+  shell: cat {{ home_directory }}/.ssh/ssh_github.pub
   register: ssh_pub_key
-  become_user: "{{bash_username}}"
   changed_when: false
 
 - name: Adding ssh public key to github
@@ -60,9 +68,6 @@
     name: Access key for my machine
     token: "{{ github_access_token }}"
     pubkey: "{{ ssh_pub_key.stdout }}"
-  become_user: "{{bash_username}}"
 
-- name: Installing gitmoji cli
-  npm:
-    name: yousign/gitmoji-cli#custom
-    global: true
+# @TODO - name: Check that this repository has the proper origin
+# @TODO - name: Change this repository origin

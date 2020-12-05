@@ -1,0 +1,16 @@
+---
+- name: Install node latest
+  homebrew:
+    name: node
+  when: brew_packages.stdout is not search('node 15')
+
+- name: Install node 14 (LTS)
+  homebrew:
+    name: node@14
+  when: brew_packages.stdout is not search('node@14')
+
+- name: Listing globally installed npm packages
+  shell: npm list -g --depth 0
+  changed_when: false
+  failed_when: false
+  register: npm_global_packages

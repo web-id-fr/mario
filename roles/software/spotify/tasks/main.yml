@@ -1,21 +1,5 @@
 ---
 - name: Installing spotify
-  apt: name=spotify-client
-
-- name: Create spotify pref directory
-  file:
-    path: /home/{{ bash_username }}/.config/spotify
-    state: directory
-  become_user: "{{ bash_username }}"
-
-- name: Create spotify pref file
-  file:
-    path: /home/{{ bash_username }}/.config/spotify/prefs
-    state: touch
-  become_user: "{{ bash_username }}"
-
-- name: Set spotify storage size
-  lineinfile:
-    path: /home/{{ bash_username }}/.config/spotify/prefs
-    regexp: '^storage\.size='
-    line: storage.size=256
+  homebrew_cask:
+    name: spotify
+  when: brew_casks.stdout is not search('spotify')

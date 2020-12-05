@@ -1,0 +1,5 @@
+---
+- name: Installing 1password
+  homebrew_cask:
+    name: 1password
+  when: brew_casks.stdout is not search('1password')

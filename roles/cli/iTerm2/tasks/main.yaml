@@ -1,0 +1,13 @@
+- name: Installing iTerm2
+  homebrew_cask:
+    name: iterm2
+  when: brew_casks.stdout is not search('iterm2')
+  register: iterm2_install
+
+- name: Setting iTerm2 preferences file path
+  shell: defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "{{ role_path }}/files"
+  when: iterm2_install.changed
+
+- name: Setting iTerm2 to get the preferences from a file file
+  shell: defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+  when: iterm2_install.changed

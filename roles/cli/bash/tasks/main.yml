@@ -1,0 +1,17 @@
+---
+- name: Copying .bash_profile file
+  template:
+    src: .bash_profile.j2
+    dest: "{{ home_directory }}/.bash_profile"
+    mode: u+x
+  register: bash_profile_copy
+
+- name: Copying bash scripts to ~/bin
+  copy:
+    src: bin
+    dest: "{{ home_directory }}"
+    mode: u+x,g+x,o+x
+  
+- name: Sourcing .bash_profile
+  shell: /bin/bash ~/.bash_profile
+  when: bash_profile_copy.changed

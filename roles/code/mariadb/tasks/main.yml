@@ -1,0 +1,5 @@
+---
+- name: Installing mariadb
+  homebrew:
+    name: mariadb
+  when: brew_packages.stdout is not search('mariadb')

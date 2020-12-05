@@ -1,10 +1,5 @@
 ---
 - name: Installing steam
-  apt: name=steam
-
-- name: Fixing scale factor to fit 4K screen
-  replace:
-    path: /usr/share/applications/steam.desktop
-    regexp: bin/spotify %U
-    replace: bin/spotify --force-scale-factor=2 %U
-
+  homebrew_cask:
+    name: steam
+  when: brew_casks.stdout is not search('steam')

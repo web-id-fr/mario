@@ -1,4 +1,0 @@
----
-- name: Installing Network Security Service tools
-  apt:
-    name: libnss3-tools

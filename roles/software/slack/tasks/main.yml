@@ -1,0 +1,5 @@
+---
+- name: Installing slack
+  homebrew_cask:
+    name: slack
+  when: brew_casks.stdout is not search('slack')

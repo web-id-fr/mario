@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# remove warning on Mac OS
+export BASH_SILENCE_DEPRECATION_WARNING=1
+touch ~/.hushlogin
+
+# set language to English
+export LC_ALL=C
+
+# history configuraton
+HISTCONTROL=ignoredups # do not store dupplicate commands in history
+HISTSIZE=1000 # increase history size
+
+# Composer global binaries
+PATH=$PATH:~/.composer/vendor/bin
+
+# ~/bin contains this repository custom scripts to the path
+PATH=$PATH::~/bin
+
+# Python pip3 binaries
+PIP3_BIN_PATH=`python3 -m site --user-base`
+PATH=$PATH:$PIP3_BIN_PATH/bin
+
+# Ansible path
+PATH="/usr/local/opt/ansible@2.8/bin:$PATH"
+
+# Brew path
+PATH="/usr/local/sbin:$PATH"
+
+# aliases
+alias histogrep='history | grep'
+alias reloud='relou'
+alias fu='fuck'
+alias gm='gitmoji -c'
+
+eval "$(thefuck --alias)"
+
+# useful for accessing any project directory from anywhere using cd
+WORKSPACE_DIRECTORY="{{ home_directory }}/Workspace"
+WORKSPACE_WORK_DIRECTORY="{{ home_directory }}/Workspace/WebID"
+CDPATH=$CDPATH:$WORKSPACE_DIRECTORY:$WORKSPACE_WORK_DIRECTORY:~
+
+# prompt
+source refresh_prompt

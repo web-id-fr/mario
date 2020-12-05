@@ -1,11 +1,5 @@
 ---
-- name: Checking if keybase is installed
-  shell: keybase --version
-  register: keybase_installed
-  changed_when: false
-  ignore_errors: true
-  
 - name: Installing keybase
-  apt:
-    deb: https://prerelease.keybase.io/keybase_amd64.deb
-  when: keybase_installed.rc != 0
+  homebrew_cask:
+    name: keybase
+  when: brew_casks.stdout is not search('keybase')
