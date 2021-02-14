@@ -35,6 +35,7 @@ defaults delete com.apple.dock persistent-apps; killall Dock
 
 ### Todo
 
+* Installer brew cask
 * Node LTS
 * vagrant
 * auto set origin of repository to ssh
