@@ -22,6 +22,12 @@ On a fresh install, remove all the Dock items in one command :
 defaults delete com.apple.dock persistent-apps; killall Dock
 ```
 
+Hide all files in the desktop :
+
+```bash
+defaults write com.apple.finder CreateDesktop false; killall Finder
+```
+
 ## Mac specific
 
 ### AppStore
@@ -37,11 +43,16 @@ defaults delete com.apple.dock persistent-apps; killall Dock
 
 * Installer brew cask
 * Node LTS
+* ajouter wget
+* ajouter valet / valet install
+* Node LTS 14
+* yarn
 * vagrant
 * auto set origin of repository to ssh
 * mysql set password root : https://stackoverflow.com/questions/57803604/homebrew-mariadb-mysql-installation-root-access-denied
 * dark menu / dock : defaults write -g NSRequiresAquaSystemAppearance -bool Yes (https://apple.stackexchange.com/questions/337478/how-to-get-dark-menu-bar-and-dock-in-mojave-light-mode)
 * add rocket
+* add gitmoji
 * chrome
 
 ### Manual stuff
