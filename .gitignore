@@ -1,3 +1,4 @@
 # Ansible specific
 *.retry
 config_vars.yml
+.DS_Store

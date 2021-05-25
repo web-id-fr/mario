@@ -1,4 +1,18 @@
-# Blacksmithery
+![M.A.R.I.O.](./mario.png)
+
+# It's a me ! M.A.R.I.O. ! 
+
+MacOS
+Ansible
+Recipes :
+Indepotent &
+Omnipotent
+
+It will pre-install a dev environment with all the big and small tools we use at [Web^ID](https://web-id.fr).
+
+## Getting Started
+
+## Old README bellow 👇
 
 This is my Mac OS setup with Ansible
 
