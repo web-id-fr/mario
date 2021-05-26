@@ -9,7 +9,7 @@ if [[ $? != 0 ]]
 then
     echo -e "${COLOR_CYAN}Ansible is not installed, skipping.${COLOR_RESET}"
 else
-    brew uninstall ansible@2.8
+    brew uninstall ansible
 
     if [[ $? != 0 ]]
     then
