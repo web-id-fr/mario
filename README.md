@@ -1,4 +1,4 @@
-![M.A.R.I.O.](./mario.png)
+![M.A.R.I.O.](./resources/img/mario.png)
 
 # It's a me! M.A.R.I.O.! 
 
@@ -16,10 +16,14 @@ A freshly installed (or not) macOS computer. Nothing else.
 
 ## Getting Started
 
-After you clone this repository, you first need to `make dotfiles`:
+First, you would need git, make sure it is installed by opening your terminal (cmd + space, then type "terminal" and hit enter) and typing `git --version`. If you see a popup that says you need command line tools to use git, click on the "Install" button.
+
+![Popup asking to install command line tools](./resources/img/command_line_tools_prompt_install.png)
+
+After you clone this repository, you need to `make dotfiles`:
 
 ```bash
-git clone git@github.com:web-id-fr/mario.git
+git clone https://github.com/web-id-fr/mario.git
 cd mario
 make dotfiles
 ```
@@ -32,13 +36,13 @@ Then you just have to:
 make install
 ```
 
-### But what kind of magic is this? 🧙‍♀️
+### 🧙‍♀️ But what kind of magic is this?
 
 Calling `make install` will:
 
-- [x] Install [homebrew](https://brew.sh/) if needed.
-- [x] Install [ansible](https://docs.ansible.com/) if needed.
-- [x] Run the `mario-playbook.yml` ansible playbook.
+* ✅ Install [homebrew](https://brew.sh/) if needed, *see [bin/install-brew.sh](bin/install-brew.sh)*
+* ✅ Install [ansible](https://docs.ansible.com/) if needed, *see [bin/install-ansible.sh](bin/install-ansible.sh)*
+* 🚀 Run the [mario-playbook.yml](mario-playbook.yml.dist) ansible playbook.
 
 *Tip: if you only need to run the playbook, you can just `make mario`.*
 

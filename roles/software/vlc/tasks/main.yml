@@ -1,5 +1,0 @@
----
-- name: Installing vlc
-  homebrew_cask:
-    name: vlc
-  when: brew_casks.stdout is not search('vlc')

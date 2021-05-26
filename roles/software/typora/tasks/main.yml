@@ -1,5 +1,0 @@
----
-- name: Installing typora
-  homebrew_cask:
-    name: typora
-  when: brew_casks.stdout is not search('typora')
