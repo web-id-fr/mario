@@ -1,4 +1,5 @@
 # Ansible specific
 *.retry
-config_vars.yml
+mario-configuration.yml
+mario-playbook.yml
 .DS_Store

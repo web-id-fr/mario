@@ -48,6 +48,18 @@ Calling `make install` will:
 
 ## Configuration
 
+### Git
+
+If you are using the `git` role, you must set these three configuration variable in mario-configuration.yml:
+
+```yml
+github_access_token: ABCDEF1234567 ## To create a github access token : https://github.com/settings/tokens
+git_name: tentacode
+git_email: tentacode@example.com
+```
+
+They will be used to set your user in git config and also to push a ssh key to be authenticated in github.
+
 ## Old README bellow 👇
 
 This is my Mac OS setup with Ansible
@@ -98,6 +110,7 @@ defaults write com.apple.finder CreateDesktop false; killall Finder
 * Node LTS 14
 * yarn
 * vagrant
+* dashlane
 * auto set origin of repository to ssh
 * mysql set password root : https://stackoverflow.com/questions/57803604/homebrew-mariadb-mysql-installation-root-access-denied
 * dark menu / dock : defaults write -g NSRequiresAquaSystemAppearance -bool Yes (https://apple.stackexchange.com/questions/337478/how-to-get-dark-menu-bar-and-dock-in-mojave-light-mode)

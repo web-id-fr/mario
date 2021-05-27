@@ -1,0 +1,13 @@
+---
+- name: "Registering whoami"
+  shell: whoami
+  register: whoami_result
+  changed_when: false
+
+- name: "Registering bash_username variable"
+  set_fact:
+    bash_username: "{{ whoami_result.stdout }}"
+
+- name: "Registering home_directory variable"
+  set_fact:
+    home_directory: "/Users/{{ bash_username }}"

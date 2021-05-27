@@ -1,0 +1,4 @@
+---
+- name: "Displaying bash_username"
+  debug: 
+    msg: "{{ bash_username }}"

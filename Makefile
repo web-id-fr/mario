@@ -8,8 +8,12 @@ install: ## Installing homebrew and ansible if needed, then running the ansible 
 	bin/install-ansible.sh
 	make mario
 
+dotfiles: ## Copy configuration files from dist
+	cp -i mario-playbook.yml.dist mario-playbook.yml | true 
+	cp -i mario-configuration.yml.dist mario-configuration.yml | true
+
 mario: ## Just run the playbook
-	ansible-playbook -i hosts mario-playbook.yml
+	ansible-playbook mario-playbook.yml
 
 uninstall: ## Remove ansible and homebrew
 	bin/uninstall.sh

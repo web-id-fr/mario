@@ -1,0 +1,33 @@
+---
+- hosts: localhost
+  vars_files:
+    - mario-configuration.yml
+
+  roles:
+    # THESE ROLES SHOULD BE RUN FIRST 👇
+    - whoami  # retrieving your bash username 
+    - brew    # retrieving your installed brew packages
+    - nodejs  # installing Node.js 14 LTS & retrieves globally installed npm packages
+    # - bash
+
+    # THESE ROLES CAN BE RUN IN ANY ORDER 👇
+    - jj      # jj is a json utility to find / update json keys easily :  https://github.com/tidwall/jj
+    - ohmyzsh # beautiful shell prompt and lots of aliases to make your life better : https://ohmyz.sh/
+    - bat     # cat alternative, with syntax coloring and cool stuffs : https://github.com/sharkdp/bat
+    # - git
+    # - htop
+    # - lol
+    # - iTerm2
+    # - php
+    # - fonts
+    # - mariadb
+    # - vagrant
+    # - 1password
+    # - discord
+    # - keybase
+    # - spotify
+    # - steam
+    # - typora
+    # - slack
+    # - vlc
+    # - vscode

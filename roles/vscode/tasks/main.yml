@@ -3,27 +3,3 @@
   homebrew_cask:
     name: visual-studio-code
   when: brew_casks.stdout is not search('visual-studio-code')
-
-- name: Getting vs code extensions
-  shell: code --list-extensions
-  register: vscode_extensions
-  changed_when: false
-
-- name: Installing sync extension
-  command: code --install-extension Shan.code-settings-sync --force
-  when: '"settings-sync" not in vscode_extensions.stdout'
-
-- name: Creating ~/.config/Code/User
-  file:
-    path: "{{ home_directory }}/.config/Code/User"
-    state: directory
-
-- name: Vs code sync configuration
-  template:
-    src: .syncLocalSettings.json.j2
-    dest: "{{ home_directory }}/.config/Code/User/syncLocalSettings.json"
-
-- name: Setting vs code sync token
-  shell: >
-    cat {{ home_directory }}/.config/Code/User/settings.json | jj -v '{{ vs_code_settings_sync_gist_id }}' sync\\.gist | tee {{ home_directory }}/.config/Code/User/settings.json
-  changed_when: false
