@@ -14,7 +14,16 @@
     - jj      # jj is a json utility to find / update json keys easily :  https://github.com/tidwall/jj
     - ohmyzsh # beautiful shell prompt and lots of aliases to make your life better : https://ohmyz.sh/
     - bat     # cat alternative, with syntax coloring and cool stuffs : https://github.com/sharkdp/bat
-    # - git
+    
+    # This one adds a lot of things:
+    # * configures your user based on mario-configuration.yml
+    # * adds an ssh key to github with the github token in  mario-configuration.yml
+    # * adds some cool git aliases (see roles/git/templates/.gitconfig.j2)
+    # * adds a gitglobalignore file (see roles/git/templates/.gitglobalignore.j2)
+    # * installs git-recent to display recently used branches (https://github.com/paulirish/git-recent)
+    # * installs gitmoji-cli to commit cool emojis (https://github.com/carloscuesta/gitmoji-cli)
+    # * installs delta for beautiful diffs : https://github.com/dandavison/delta
+    - git     
     # - htop
     # - lol
     # - iTerm2

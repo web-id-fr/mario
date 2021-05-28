@@ -4,11 +4,10 @@
     name: git
   when: brew_packages.stdout is not search('git 2')
 
-- name: Installing diff-so-fancy
-  npm:
-    name: diff-so-fancy
-    global: yes
-  when: npm_global_packages.stdout is not search('diff-so-fancy')
+- name: Installing delta
+  homebrew:
+    name: git-delta
+  when: brew_packages.stdout is not search('git-delta')
 
 - name: Installing git recent
   npm:
@@ -22,22 +21,12 @@
     global: true
   when: npm_global_packages.stdout is not search('gitmoji-cli')
 
-- name: Git configuration
+- name: Copyting Git configuration
   template:
     src: .gitconfig.j2
     dest: "{{ home_directory }}/.gitconfig"
 
-- name: Git configuration personal
-  template:
-    src: .gitconfig_personal.j2
-    dest: "{{ home_directory }}/.gitconfig_personal"
-
-- name: Git configuration work
-  template:
-    src: .gitconfig_work.j2
-    dest: "{{ home_directory }}/.gitconfig_work"
-
-- name: Git global ignore
+- name: Copying Git global ignore
   template:
     src: .gitglobalignore.j2
     dest: "{{ home_directory }}/.gitglobalignore"
@@ -53,11 +42,11 @@
     src: .ssh_config.j2
     dest: "{{ home_directory }}/.ssh/config"
 
-- name: Generate ssh keys for github
+- name: Generating ssh keys for github
   openssh_keypair:
     path: "{{ home_directory }}/.ssh/ssh_github"
 
-- name: Read ssh public key to authorize
+- name: Reading ssh public key to authorize
   shell: cat {{ home_directory }}/.ssh/ssh_github.pub
   register: ssh_pub_key
   changed_when: false
@@ -68,6 +57,13 @@
     name: Access key for my machine
     token: "{{ github_access_token }}"
     pubkey: "{{ ssh_pub_key.stdout }}"
+  when: github_access_token|default(None)
 
-# @TODO - name: Check that this repository has the proper origin
-# @TODO - name: Change this repository origin
+- name: Checking if this remote is https or ssh
+  shell: git remote -v
+  register: git_remotes
+  changed_when: false
+
+- name: Setting remotes to ssh
+  shell: git remote set-url origin git@github.com:web-id-fr/mario.git
+  when: git_remotes.stdout is search('https')

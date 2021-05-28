@@ -2,7 +2,6 @@
     precomposeunicode = false
     editor = vim -c 'startinsert' 
     excludesfile = ~/.gitglobalignore
-    pager = diff-so-fancy | less --tabs=1,5 -R
 
 [pull]
     rebase = false
@@ -14,10 +13,10 @@
     next = !sh -c 'git log --reverse --format=%H `git rev-parse --verify HEAD`..master | head -1 | xargs git checkout'
     previous = checkout HEAD~1
     amend = commit --amend --no-edit
-    rebase-master = pull --rebase origin master
+    rebase-main = pull --rebase origin main
     pushu = !git push -u origin "$(git rev-parse --abbrev-ref HEAD)"
 
-    # use like 'git date "2020-02-14"'
+    # use like 'git date "2020-02-14"' go to this date in your current branch history
     date = "!f() { date=${1-Jan 01 2020}; git checkout `git rev-list -1 --before=\"$date\" master`;  }; f"
 
 [color]
@@ -26,11 +25,24 @@
 [push]
     default = simple
 
-[merge]
-    tool = diffmerge
+[user]
+    email = "{{ git_email }}"
+    name = "{{ git_name }}"
 
-[includeIf "gitdir:{{ git_directory }}/"]
-    path = .gitconfig_personal
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
 
-[includeIf "gitdir:{{ git_work_directory }}/"]
-    path = .gitconfig_work
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none

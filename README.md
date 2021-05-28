@@ -60,6 +60,25 @@ git_email: tentacode@example.com
 
 They will be used to set your user in git config and also to push a ssh key to be authenticated in github.
 
+## Custom aliases and scripts
+
+### Scripts
+
+* relou : quickly find what is taking space in your current directory
+
+### Zsh aliases
+
+### Git aliases
+
+* st : a simpler display of git status
+* amend : git commit --amend --no-edit
+* rebase-main : git pull --rebase origin main
+* pushu : push a new branch to origin and tracks it
+* mvi : rename a file with case sensivity (ex: git mv abc ABC, does not work by default with git)
+* previous : go back by one commit (useful for workshops)
+* next : go to the next commit (useful for workshops)
+* date : got to a date "YYYY-MM-DD" in current branch history
+
 ## Old README bellow 👇
 
 This is my Mac OS setup with Ansible
@@ -103,19 +122,16 @@ defaults write com.apple.finder CreateDesktop false; killall Finder
 
 ### Todo
 
+* config zsh -> anglais, aliases (gitmoji)
 * Installer brew cask
-* Node LTS
 * ajouter wget
 * ajouter valet / valet install
-* Node LTS 14
 * yarn
 * vagrant
 * dashlane
 * auto set origin of repository to ssh
 * mysql set password root : https://stackoverflow.com/questions/57803604/homebrew-mariadb-mysql-installation-root-access-denied
-* dark menu / dock : defaults write -g NSRequiresAquaSystemAppearance -bool Yes (https://apple.stackexchange.com/questions/337478/how-to-get-dark-menu-bar-and-dock-in-mojave-light-mode)
 * add rocket
-* add gitmoji
 * chrome
 
 ### Manual stuff
