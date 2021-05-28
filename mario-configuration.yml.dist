@@ -3,5 +3,5 @@
 
 ## To create a github access token : https://github.com/settings/tokens
 github_access_token: CHANGE_ME
-git_name: CHANGE_ME
-git_email: CHANGE_ME@example.com
+git_name: mario
+git_email: mario@mushroomkingdom.com

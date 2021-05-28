@@ -1,5 +1,7 @@
 ![M.A.R.I.O.](./resources/img/mario.png)
 
+[![M.A.R.I.O. CI](https://github.com/web-id-fr/mario/actions/workflows/mario-ci.yml/badge.svg)](https://github.com/web-id-fr/mario/actions/workflows/mario-ci.yml)
+
 # It's a me! M.A.R.I.O.! 
 
 MacOS

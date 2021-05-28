@@ -1,0 +1,45 @@
+name:  M.A.R.I.O. CI
+on: [push]
+jobs:
+  mario-ci:
+    runs-on: macos-latest
+    steps:
+      # cloning directory
+      - uses: actions/checkout@v2
+
+      - name: Creating mario-configuration.yml and mario-playbook.yml
+        run: make dotfiles
+
+      - name: Removing github token from mario-configuration.yml
+        run: sed -i -e "s/CHANGE_ME//g" mario-configuration.yml
+
+      - name: Installing all dependencies
+        run: make preinstall
+
+      - name: Running mario ansible playbook
+        run: make mario
+
+      # On failure
+      - name: Failure slack notification
+        run: bin/slack_ci_notification.sh
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          EMOJI: ':marioff:'
+          USERNAME: Mario CI is failing
+          COLOR: '#FF5555'
+          PRETEXT: "Mama mia!"
+          TITLE: CI is failing on branch ${{ github.ref }}
+          TEXT: ${{ github.event.head_commit.message }}
+        if: ${{ failure() }}
+
+      # On success
+      - name: Success slack notification
+        run: bin/slack_ci_notification.sh
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          EMOJI: ':mario:'
+          USERNAME: Mario CI
+          COLOR: '#55FF55'
+          PRETEXT: "It's a me, mario!"
+          TITLE: CI was successful on branch ${{ github.ref }}
+          TEXT: ${{ github.event.head_commit.message }}
