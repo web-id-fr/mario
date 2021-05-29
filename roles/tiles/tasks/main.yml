@@ -1,0 +1,5 @@
+---
+- name: Installing tiles
+  homebrew_cask:
+    name: tiles
+  when: brew_casks.stdout is not search('tiles')

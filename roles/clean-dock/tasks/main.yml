@@ -1,0 +1,13 @@
+---
+# empty persistent-apps output looks like:
+#(
+#)
+# this is why we count the number of line to be equal 2
+- name: Checking if the dock need to be cleaned
+  shell: defaults read com.apple.dock persistent-apps | wc -l | tr -d ' '
+  register: persistent_app_check
+  failed_when: false
+
+- name: Remove peristent apps in the dock and restarts it
+  shell: defaults delete com.apple.dock persistent-apps; killall Dock
+  when: persistent_app_check.stdout != '2'

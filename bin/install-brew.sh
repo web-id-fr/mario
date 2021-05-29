@@ -9,6 +9,7 @@ if [[ $? != 0 ]]
 then
     echo -e "${COLOR_RED}Homebrew is not installed, installing...${COLOR_RESET}"
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    exit $?
 fi
 
 # First line of brew --version is "Homebrew X.X.X"

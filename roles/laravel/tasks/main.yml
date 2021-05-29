@@ -1,0 +1,7 @@
+---
+- name: Installing laravel installer
+  composer:
+    command: require
+    global_command: yes
+    arguments: laravel/installer
+  when: composer_global_packages.stdout is not search('laravel/valet')

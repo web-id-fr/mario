@@ -11,9 +11,3 @@
     executable: pip3
     extra_args: --user
   when: thefuck_installed.rc != 0
-
-- name: Installing gti
-  npm:
-    name: gti
-    global: yes
-  when: npm_global_packages.stdout is not search('gti')

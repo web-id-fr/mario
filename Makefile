@@ -11,7 +11,7 @@ preinstall: ## Installing homebrew and ansible if needed
 	bin/install-brew.sh
 	bin/install-ansible.sh
 
-dotfiles: ## Copy configuration files from dist
+config: ## Copy configuration files from dist
 	cp -i mario-playbook.yml.dist mario-playbook.yml | true 
 	cp -i mario-configuration.yml.dist mario-configuration.yml | true
 

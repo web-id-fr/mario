@@ -1,7 +1,14 @@
 # Git configuration
 # this is used in roles/git
-
-## To create a github access token : https://github.com/settings/tokens
-github_access_token: CHANGE_ME
 git_name: mario
 git_email: mario@mushroomkingdom.com
+
+# Used in roles/githhub
+# To create a github access token : https://github.com/settings/tokens
+github_access_name: CHANGE_ME
+github_access_token: CHANGE_ME
+
+# PHP older versions, used in roles/php
+#php_older_versions:
+#  - php@7.4
+#  - php@7.3

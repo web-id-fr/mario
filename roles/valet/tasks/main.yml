@@ -1,0 +1,9 @@
+---
+- name: Installing valet
+  composer:
+    command: require
+    global_command: yes
+    arguments: laravel/valet
+  when: composer_global_packages.stdout is not search('laravel/valet')
+
+  # @TODO valet install ? -> valet tld

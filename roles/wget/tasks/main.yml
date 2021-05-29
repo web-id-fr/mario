@@ -1,0 +1,5 @@
+---
+- name: Installing wget
+  homebrew:
+    name: wget
+  when: brew_packages.stdout is not search('wget')

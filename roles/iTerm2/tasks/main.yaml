@@ -4,10 +4,11 @@
   when: brew_casks.stdout is not search('iterm2')
   register: iterm2_install
 
+# Use to set default profile to the one in roles/iTerm2/files
 - name: Setting iTerm2 preferences file path
   shell: defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "{{ role_path }}/files"
   when: iterm2_install.changed
 
-- name: Setting iTerm2 to get the preferences from a file file
+- name: Reloading preferences in iTerm2
   shell: defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
   when: iterm2_install.changed

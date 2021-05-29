@@ -1,0 +1,6 @@
+---
+- name: Installing gti
+  npm:
+    name: gti
+    global: yes
+  when: npm_global_packages.stdout is not search('gti')

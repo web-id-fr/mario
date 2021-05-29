@@ -10,6 +10,7 @@ then
     echo -e "${COLOR_RED}Ansible is not installed, installing...${COLOR_RESET}"
 
     brew install ansible
+    exit $?
 fi
 
 # First line of ansible --version is "ansible X.X.X"

@@ -1,0 +1,5 @@
+---
+- name: Installing Sequel Ace
+  homebrew_cask:
+    name: sequel-ace
+  when: brew_casks.stdout is not search('sequel-ace')

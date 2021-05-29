@@ -1,0 +1,5 @@
+---
+- name: Installing rocket
+  homebrew_cask:
+    name: rocket
+  when: brew_casks.stdout is not search('rocket')

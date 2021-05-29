@@ -1,0 +1,5 @@
+---
+- name: Installing firefox
+  homebrew_cask:
+    name: firefox
+  when: brew_casks.stdout is not search('firefox')

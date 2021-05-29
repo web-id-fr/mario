@@ -1,0 +1,5 @@
+---
+- name: Installing Google Chrome
+  homebrew_cask:
+    name: google-chrome
+  when: brew_casks.stdout is not search('google-chrome')
