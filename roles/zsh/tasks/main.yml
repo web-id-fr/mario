@@ -1,0 +1,13 @@
+---
+- name: Copying .zshrc file
+  template:
+    src: .zshrc.j2
+    dest: "{{ home_directory }}/.zshrc"
+    mode: u+x
+  register: zshrc_copy
+
+- name: Copying bash scripts to ~/bin
+  copy:
+    src: bin
+    dest: "{{ home_directory }}"
+    mode: u+x,g+x,o+x

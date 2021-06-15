@@ -29,7 +29,7 @@
     - firacode-font # a cool font for coding, with ligature (used in iTerm2 settings as well): https://github.com/tonsky/FiraCode
 
     # Command line helpers 🤓
-    # - @todo zsh config ?
+    - zsh     # zsh config, see: roles/zsh/templates/.zshrc.j2
     - ohmyzsh # beautiful shell prompt and lots of aliases to make your life better: https://ohmyz.sh
     - jj      # jj is a json utility to find / update json keys easily:  https://github.com/tidwall/jj
     - bat     # cat alternative, with syntax coloring and cool stuffs: https://github.com/sharkdp/bat
