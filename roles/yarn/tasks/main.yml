@@ -1,0 +1,5 @@
+---
+- name: Installing yarn
+  homebrew:
+    name: yarn
+  when: brew_packages.stdout is not search('yarn')

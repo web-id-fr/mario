@@ -56,6 +56,7 @@
     - valet      # ⚠️ need the php role, installs laravel valet: https://laravel.com/docs/8.x/valet 
     - mariadb    # MySQL but open source: https://mariadb.org/
     - sequel-ace # database management GUI: https://github.com/Sequel-Ace/Sequel-Ace
+    - yarn       # Javascript build tool: https://yarnpkg.com/
     # - @TODO vagrant
 
     # Everyday softwares 🌞
