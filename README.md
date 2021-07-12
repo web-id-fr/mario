@@ -107,10 +107,11 @@ Use the `alias` command to see all of oh-my-zsh aliases.
 ### Git aliases
 
 * st : a simpler display of git status
-* amend : git commit --amend --no-edit
-* rebase-main : git pull --rebase origin main
+* amend : `git commit --amend --no-edit`
+* rebase-main : `git pull --rebase origin main`
 * pushu : push a new branch to origin and tracks it
-* mvi : rename a file with case sensivity (ex: git mv abc ABC, does not work by default with git)
+* mvi : rename a file with case sensivity (ex: `git mv abc ABC`, does not work by default with git)
 * previous : go back by one commit (useful for workshops)
 * next : go to the next commit (useful for workshops)
 * date : got to a date "YYYY-MM-DD" in current branch history
+* yolo : `git add . && git amend && git push -f`
