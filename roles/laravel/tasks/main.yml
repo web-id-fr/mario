@@ -5,3 +5,9 @@
     global_command: yes
     arguments: laravel/installer
   when: composer_global_packages.stdout is not search('laravel/valet')
+
+- name: Installing laravel mix
+  npm:
+    name: laravel-mix
+    global: yes
+  when: npm_global_packages.stdout is not search('laravel-mix')
