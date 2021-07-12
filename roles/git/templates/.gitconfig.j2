@@ -15,6 +15,7 @@
     amend = commit --amend --no-edit
     rebase-main = pull --rebase origin main
     pushu = !git push -u origin "$(git rev-parse --abbrev-ref HEAD)"
+    yolo = !git add . && git amend && git push -f
 
     # use like 'git date "2020-02-14"' go to this date in your current branch history
     date = "!f() { date=${1-Jan 01 2020}; git checkout `git rev-list -1 --before=\"$date\" master`;  }; f"
