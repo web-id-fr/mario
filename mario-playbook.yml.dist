@@ -19,6 +19,7 @@
     # THESE ROLES CAN BE RUN IN ANY ORDER 👇
 
     # macOS specific tips 🍎
+    - aerial        # installs appletv like screen saver: https://aerialscreensaver.github.io
     - clean-dock    # remove all the stickies in the macOS dock, useful after a fresh install
     - clean-desktop # hides the files in the desktop (they are still there, just hidden)
     - rocket        # emoji picker: https://matthewpalmer.net/rocket

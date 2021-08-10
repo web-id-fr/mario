@@ -1,0 +1,5 @@
+---
+- name: Installing aerial
+  homebrew_cask:
+    name: aerial
+  when: brew_packages.stdout is not search('aerial')
