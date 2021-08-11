@@ -1,0 +1,5 @@
+---
+- name: Installing redis
+  homebrew:
+    name: redis
+  when: brew_packages.stdout is not search('redis')
