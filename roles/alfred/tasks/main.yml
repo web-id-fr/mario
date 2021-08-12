@@ -1,0 +1,5 @@
+---
+- name: Installing alfred
+  homebrew_cask:
+    name: alfred
+  when: brew_casks.stdout is not search('alfred')

@@ -20,6 +20,7 @@
 
     # macOS specific tips 🍎
     - aerial        # installs appletv like screen saver: https://aerialscreensaver.github.io
+    - alfred        # installs Alfred, alternative to Spotlight: https://www.alfredapp.com
     - clean-dock    # remove all the stickies in the macOS dock, useful after a fresh install
     - clean-desktop # hides the files in the desktop (they are still there, just hidden)
     - rocket        # emoji picker: https://matthewpalmer.net/rocket
@@ -63,6 +64,7 @@
 
     # Everyday softwares 🌞
     - 1password     # password manager: https://1password.com
+    - alfred        # alternative to Spotlight: https://www.alfredapp.com
     - dashlane      # password manager: https://www.dashlane.com
     - discord       # audio/video chat: https://discord.com/brand-new
     - firefox       # https://www.mozilla.org/firefox/new
