@@ -15,6 +15,7 @@
     - whoami  # retrieving your bash username 
     - brew    # retrieving your installed brew packages
     - nodejs  # installing Node.js 14 LTS & retrieves globally installed npm packages
+    - pip     # retrieving pip installed packages
 
     # THESE ROLES CAN BE RUN IN ANY ORDER 👇
 
@@ -59,6 +60,7 @@
     - mariadb    # MySQL but open source: https://mariadb.org/
     - redis      # Redis database: https://redis.io/
     - sequel-ace # database management GUI: https://github.com/Sequel-Ace/Sequel-Ace
+    - supervisor # process controll system: http://supervisord.org
     - yarn       # Javascript build tool: https://yarnpkg.com/
     # - @TODO vagrant
 

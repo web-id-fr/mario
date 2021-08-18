@@ -19,6 +19,9 @@ jobs:
       - name: Running mario ansible playbook
         run: make mario
 
+      - name: Running mario ansible playbook again, to make sure it's iso
+        run: make mario
+
       # On failure
       - name: Failure slack notification
         run: bin/slack_ci_notification.sh

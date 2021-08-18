@@ -1,0 +1,10 @@
+---
+- name: Installing supervisor
+  homebrew:
+    name: supervisor
+  when: brew_packages.stdout is not search('supervisor')
+  register: supervisor_install
+
+- name: Restarting supervisor service
+  shell: brew services restart supervisor
+  when: supervisor_install.changed

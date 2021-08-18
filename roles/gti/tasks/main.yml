@@ -1,6 +1,8 @@
 ---
-- name: Installing gti
+- name: Installing maildev
   npm:
-    name: gti
+    name: maildev
     global: yes
-  when: npm_global_packages.stdout is not search('gti')
+  when: npm_global_packages.stdout is not search('maildev')
+
+  # Todo supervisor

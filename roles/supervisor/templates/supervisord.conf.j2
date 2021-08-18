@@ -1,0 +1,27 @@
+[unix_http_server]
+file=/usr/local/share/tmp/supervisor.sock
+chmod=0700
+
+[supervisord]
+logfile = /usr/local/var/log/supervisord.log
+logfile_maxbytes = 50MB
+logfile_backups=10
+loglevel = info
+pidfile = /tmp/supervisord.pid
+nodaemon = False
+minfds = 1024
+minprocs = 200
+umask = 022
+identifier = supervisor
+directory = /usr/local/share/tmp
+nocleanup = true
+childlogdir = /usr/local/share/tmp
+
+[supervisorctl]
+serverurl = unix:///usr/local/share/tmp/supervisor.sock
+
+[rpcinterface:supervisor]
+supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
+
+[include]
+files = /usr/local/share/supervisor/conf.d/*.conf

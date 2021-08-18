@@ -1,13 +1,7 @@
 ---
-- name: Checking if thefuck is installed
-  shell: pip3 list | grep thefuck
-  register: thefuck_installed
-  changed_when: false
-  failed_when: false
-
 - name: Installing thefuck
   pip:
     name: thefuck
     executable: pip3
     extra_args: --user
-  when: thefuck_installed.rc != 0
+  when: pip_packages.stdout is not search('thefuck')

@@ -1,0 +1,6 @@
+---
+- name: Listing globally installed npm packages
+  shell: pip3 list | grep thefuck
+  changed_when: false
+  failed_when: false
+  register: pip_packages
