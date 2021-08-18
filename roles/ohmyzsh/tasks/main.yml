@@ -1,20 +1,19 @@
 - name: Checking if oh-my-zsh is installed
-  shell: echo $ZSH
-  changed_when: false
-  ignore_errors: true
-  register: dollar_zsh
+  stat:
+    path: "{{ home_directory }}/.oh-my-zsh"
+  register: zsh_install_directory
 
 - name: Downloading oh-my-zsh
   get_url:
     url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
     dest: ~/install-ohmyzsh.sh
     mode: +x
-  when: dollar_zsh.stdout is not search('.oh-my-zsh')
+  when: zsh_install_directory.stat.exists == false
   register: install_ohmyzsh
 
 - name: Installing oh-my-zsh
   command: ~/install-ohmyzsh.sh
-  when: dollar_zsh.stdout is not search('.oh-my-zsh')
+  when: zsh_install_directory.stat.exists == false
 
 - name: Fixing /usr/local/share/zsh permissions
   file:
