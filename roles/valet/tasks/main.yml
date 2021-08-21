@@ -6,4 +6,17 @@
     arguments: laravel/valet
   when: composer_global_packages.stdout is not search('laravel/valet')
 
-  # @TODO valet install ? -> valet tld
+- name: Checking if valet configuration exists
+  stat:
+    path: "{{ home_directory }}/.config/valet/config.json"
+  register: valet_configuration
+
+- name: Setuping valet (valet install)
+  shell:
+    run: valet install
+  when: valet_configuration.stat.exists == false
+
+- name: Configuring valet
+  template:
+    src: config.json.j2
+    dest: "{{ home_directory }}/.config/valet/config.json"

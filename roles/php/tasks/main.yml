@@ -6,8 +6,8 @@
 
 - name: Installing php stable
   homebrew:
-    name: php
-  when: brew_packages.stdout is not search('php 8')
+    name: php@8.0
+  when: brew_packages.stdout is not search('php@8.0')
 
 - name: Installing older php versions
   homebrew:
