@@ -1,6 +1,13 @@
 ---
-- name: Installing gti
+- name: Installing maildev
   npm:
-    name: gti
+    name: maildev
     global: yes
-  when: npm_global_packages.stdout is not search('gti')
+  when: npm_global_packages.stdout is not search('maildev')
+
+- name: Setup maildev as a supervisor deamon
+  template:
+    src: supervisor-maildev.conf
+    dest: /usr/local/share/supervisor/conf.d/maildev.conf
+  notify:
+    - Restart supervisord

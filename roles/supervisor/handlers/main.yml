@@ -1,0 +1,2 @@
+- name: Restart supervisord
+  shell: brew services restart supervisor

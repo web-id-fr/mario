@@ -12,10 +12,11 @@
     # THESE ROLES SHOULD BE RUN FIRST 👇
 
     # These are required by some other roles
-    - whoami  # retrieving your bash username 
-    - brew    # retrieving your installed brew packages
-    - nodejs  # installing Node.js 14 LTS & retrieves globally installed npm packages
-    - pip     # retrieving pip installed packages
+    - whoami     # retrieving your bash username 
+    - brew       # retrieving your installed brew packages
+    - nodejs     # installing Node.js 14 LTS & retrieves globally installed npm packages
+    - pip        # retrieving pip installed packages
+    - supervisor # process controll system: http://supervisord.org
 
     # THESE ROLES CAN BE RUN IN ANY ORDER 👇
 
@@ -58,9 +59,9 @@
     - laravel    # ⚠️ need the php role, installs laravel installer: https://laravel.com/docs/8.x/installation#the-laravel-installer
     - valet      # ⚠️ need the php role, installs laravel valet: https://laravel.com/docs/8.x/valet 
     - mariadb    # MySQL but open source: https://mariadb.org/
+    - maildev    # e-mail catcher: https://maildev.github.io/maildev
     - redis      # Redis database: https://redis.io/
     - sequel-ace # database management GUI: https://github.com/Sequel-Ace/Sequel-Ace
-    - supervisor # process controll system: http://supervisord.org
     - yarn       # Javascript build tool: https://yarnpkg.com/
     # - @TODO vagrant
 

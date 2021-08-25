@@ -3,8 +3,17 @@
   homebrew:
     name: supervisor
   when: brew_packages.stdout is not search('supervisor')
-  register: supervisor_install
+  notify:
+    - Restart supervisord
 
-- name: Restarting supervisor service
-  shell: brew services restart supervisor
-  when: supervisor_install.changed
+- name: Configuring supervisor
+  template:
+    src: supervisord.conf.j2
+    dest: /usr/local/etc/supervisord.conf
+  notify:
+    - Restart supervisord
+
+- name: Creating configuration directory
+  file:
+    path: /usr/local/share/supervisor/conf.d
+    state: directory
