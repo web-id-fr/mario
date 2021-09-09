@@ -23,5 +23,6 @@
 - name: Listing globally installed composer packages
   shell: composer global show
   changed_when: false
+  failed_when: false
   ignore_errors: true
   register: composer_global_packages

@@ -12,8 +12,7 @@
   register: valet_configuration
 
 - name: Setuping valet (valet install)
-  shell:
-    run: valet install
+  shell: valet install
   when: valet_configuration.stat.exists == false
 
 - name: Configuring valet
