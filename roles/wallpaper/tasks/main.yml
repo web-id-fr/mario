@@ -1,4 +1,0 @@
----
-- name: Setting wallpaper
-  shell: osascript -e 'tell application "Finder" to set desktop picture to POSIX file "{{ role_path }}/files/wallpaper.jpg"'
-

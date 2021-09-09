@@ -27,7 +27,6 @@
     - clean-desktop # hides the files in the desktop (they are still there, just hidden)
     - rocket        # emoji picker: https://matthewpalmer.net/rocket
     - tiles         # window management: https://www.sempliva.com/tiles/ 
-    - wallpaper     # sets a nice wallpaper 😏
 
     # Fonts ✨
     - firacode-font # a cool font for coding, with ligature (used in iTerm2 settings as well): https://github.com/tonsky/FiraCode
