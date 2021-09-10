@@ -22,7 +22,7 @@ First, you would need git, make sure it is installed by opening your terminal (c
 
 ![Popup asking to install command line tools](./resources/img/command_line_tools_prompt_install.png)
 
-After you clone this repository, you need to `make dotfiles`:
+After you clone this repository, you need to `make config`:
 
 ```bash
 # a good idea would be to create a folder for you code first
