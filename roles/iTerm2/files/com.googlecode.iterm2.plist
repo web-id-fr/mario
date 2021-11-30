@@ -895,7 +895,7 @@
 			<key>Window Type</key>
 			<integer>1</integer>
 			<key>Working Directory</key>
-			<string>/Users/gabriel/Workspace</string>
+			<string>~/Workspace</string>
 		</dict>
 	</array>
 	<key>OnlyWhenMoreTabs</key>
