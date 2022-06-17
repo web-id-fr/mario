@@ -1,5 +1,0 @@
----
-- name: Installing dashlane
-  homebrew_cask:
-    name: dashlane
-  when: brew_casks.stdout is not search('dashlane')
