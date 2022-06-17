@@ -12,7 +12,7 @@
   register: valet_configuration
 
 - name: Setuping valet (valet install)
-  shell: valet install
+  shell: "{{ home_directory }}/.composer/vendor/bin/valet install"
   when: valet_configuration.stat.exists == false
 
 - name: Configuring valet
