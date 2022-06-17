@@ -1,0 +1,10 @@
+---
+- name: Adding symfony tap for homebrew
+  homebrew_tap:
+    name: symfony-cli/tap
+  when: brew_taps.stdout is not search('symfony-cli/tap')
+
+- name: Installing symfony cli
+  homebrew:
+    name: symfony-cli
+  when: brew_packages.stdout is not search('symfony-cli')

@@ -55,6 +55,7 @@
     - iTerm2     # a cool alternative to macOS default terminal: https://iterm2.com/
     - php        # see mario-configuration.yml.dist to see how to add specific php versions
     - laravel    # ⚠️ need the php role, installs laravel installer: https://laravel.com/docs/8.x/installation#the-laravel-installer
+    - symfony    # installs symfony cli: https://symfony.com/download
     - valet      # ⚠️ need the php role, installs laravel valet: https://laravel.com/docs/8.x/valet 
     - mariadb    # MySQL but open source: https://mariadb.org/
     - maildev    # e-mail catcher: https://maildev.github.io/maildev
