@@ -21,7 +21,7 @@
     # THESE ROLES CAN BE RUN IN ANY ORDER 👇
 
     # macOS specific tips 🍎
-    - aerial        # installs appletv like screen saver: https://aerialscreensaver.github.io
+    #- aerial        # installs appletv like screen saver: https://aerialscreensaver.github.io
     - alfred        # installs Alfred, alternative to Spotlight: https://www.alfredapp.com
     - clean-dock    # remove all the stickies in the macOS dock, useful after a fresh install
     - clean-desktop # hides the files in the desktop (they are still there, just hidden)
@@ -61,19 +61,17 @@
     - redis      # Redis database: https://redis.io/
     - sequel-ace # database management GUI: https://github.com/Sequel-Ace/Sequel-Ace
     - yarn       # Javascript build tool: https://yarnpkg.com/
-    # - @TODO vagrant
 
     # Everyday softwares 🌞
-    - 1password     # password manager: https://1password.com
-    - alfred        # alternative to Spotlight: https://www.alfredapp.com
-    - dashlane      # password manager: https://www.dashlane.com
-    - discord       # audio/video chat: https://discord.com/brand-new
-    - firefox       # https://www.mozilla.org/firefox/new
-    - google-chrome # https://www.google.com/chrome
-    - keybase       # secure messaging app: https://keybase.io
-    - slack         # messaging for teams: https://slack.com
-    - spotify       # streaming music: https://www.spotify.com/fr
-    - steam         # game store: https://store.steampowered.com
-    - typora        # simple markdown editor: https://typora.io
-    - vlc           # video viewer: https://www.videolan.org/vlc
-    - vscode        # @TODO sync settings
+    #- 1password     # password manager: https://1password.com
+    #- alfred        # alternative to Spotlight: https://www.alfredapp.com
+    #- discord       # audio/video chat: https://discord.com/brand-new
+    #- firefox       # https://www.mozilla.org/firefox/new
+    #- google-chrome # https://www.google.com/chrome
+    #- keybase       # secure messaging app: https://keybase.io
+    #- slack         # messaging for teams: https://slack.com
+    #- spotify       # streaming music: https://www.spotify.com/fr
+    #- steam         # game store: https://store.steampowered.com
+    #- typora        # simple markdown editor: https://typora.io
+    #- vlc           # video viewer: https://www.videolan.org/vlc
+    #- vscode        # @TODO sync settings
