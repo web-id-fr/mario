@@ -39,11 +39,3 @@
   file:
     path: ~/install-ohmyzsh.sh
     state: absent
-
-- name: Change user shell to zsh 
-  user:
-    name: "{{ bash_username }}"
-    shell: /bin/zsh
-
-- name: Source zsh
-  shell: source {{ home_directory }}/.zshrc
