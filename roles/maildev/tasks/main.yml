@@ -8,6 +8,6 @@
 - name: Setup maildev as a supervisor deamon
   template:
     src: supervisor-maildev.conf
-    dest: /usr/local/share/supervisor/conf.d/maildev.conf
+    dest: /opt/homebrew/share/supervisor/conf.d/maildev.conf
   notify:
     - Restart supervisord

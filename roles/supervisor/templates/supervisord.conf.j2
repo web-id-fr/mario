@@ -1,5 +1,5 @@
 [supervisord]
-logfile = /usr/local/var/log/supervisord.log
+logfile = /opt/homebrew/var/log/supervisord.log
 
 [supervisorctl]
 
@@ -10,4 +10,4 @@ port = 127.0.0.1:9001
 supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
 
 [include]
-files = /usr/local/share/supervisor/conf.d/*.conf
+files = /opt/homebrew/share/supervisor/conf.d/*.conf

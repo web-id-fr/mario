@@ -9,11 +9,11 @@
 - name: Configuring supervisor
   template:
     src: supervisord.conf.j2
-    dest: /usr/local/etc/supervisord.conf
+    dest: /opt/homebrew/etc/supervisord.conf
   notify:
     - Restart supervisord
 
 - name: Creating configuration directory
   file:
-    path: /usr/local/share/supervisor/conf.d
+    path: /opt/homebrew/share/supervisor/conf.d
     state: directory

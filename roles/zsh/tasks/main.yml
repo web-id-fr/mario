@@ -29,9 +29,9 @@
   command: ~/install-ohmyzsh.sh
   when: zsh_install_directory.stat.exists == false
 
-- name: Fixing /usr/local/share/zsh permissions
+- name: Fixing /opt/homebrew/share/zsh permissions
   file:
-    path: /usr/local/share/zsh
+    path: /opt/homebrew/share/zsh
     mode: g-w
     recurse: yes
 
