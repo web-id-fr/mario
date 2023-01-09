@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:/opt/homebrew/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/{{ bash_username }}/.oh-my-zsh"
@@ -76,7 +76,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# export MANPATH="/opt/homebrew/man:$MANPATH"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -104,7 +104,7 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # Brew path
-PATH="/usr/local/sbin:$PATH"
+PATH="/opt/homebrew/bin:$PATH"
 
 # Composer path
 PATH=$PATH:$HOME/.composer/vendor/bin
@@ -113,7 +113,7 @@ PATH=$PATH:$HOME/.composer/vendor/bin
 PATH=$PATH:$HOME/bin
 
 # m-cli path
-export PATH=$PATH:/usr/local/m-cli
+export PATH=$PATH:/opt/homebrew/m-cli
 
 # Python path
 PIP3_BIN_PATH=`python3 -m site --user-base`
